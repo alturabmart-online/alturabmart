@@ -3,153 +3,407 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al Turab Mart | Online Grocery & Home Delivery</title>
+<title>Al Turab Mart | Online Grocery</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f7f8f5;color:#222}
-header{background:#fff;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px #00000012;position:sticky;top:0;z-index:10}
-.logo{font-size:25px;font-weight:800;letter-spacing:1px}
-.logo small{display:block;font-size:11px;letter-spacing:3px;text-align:center}
-nav a{text-decoration:none;color:#222;margin-left:22px;font-weight:600}
-.hero{padding:75px 7%;background:linear-gradient(135deg,#eef7ed,#fff);display:flex;justify-content:space-between;align-items:center;gap:40px}
-.hero-text{max-width:600px}
-.hero h1{font-size:48px;line-height:1.1;margin-bottom:18px}
-.hero p{font-size:18px;line-height:1.7;color:#555;margin-bottom:25px}
-.buttons a{display:inline-block;padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:700;margin-right:10px}
-.whatsapp{background:#25D366;color:white}
-.call{background:#222;color:white}
-.delivery{background:white;padding:30px;border-radius:18px;box-shadow:0 10px 30px #00000012;min-width:270px;text-align:center}
-.delivery .big{font-size:38px;font-weight:800;margin:10px 0}
-section{padding:65px 7%}
-.title{text-align:center;font-size:32px;margin-bottom:35px}
-.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.category{background:white;padding:30px 15px;text-align:center;border-radius:14px;box-shadow:0 5px 20px #0000000f;font-size:18px;font-weight:700}
-.category div{font-size:35px;margin-bottom:12px}
-.about{text-align:center;background:white}
-.about p{max-width:750px;margin:auto;color:#555;line-height:1.8;font-size:17px}
-.contact{text-align:center}
-.card{max-width:650px;margin:auto;background:white;padding:35px;border-radius:16px;box-shadow:0 5px 20px #00000012}
-.card p{margin:12px 0;font-size:17px}
-footer{background:#222;color:white;text-align:center;padding:25px}
-@media(max-width:800px){
-header{padding:15px 5%}nav{display:none}
-.hero{flex-direction:column;text-align:center;padding:55px 5%}
-.hero h1{font-size:38px}.delivery{width:100%}
-.categories{grid-template-columns:repeat(2,1fr)}
-section{padding:50px 5%}
+
+body{
+font-family:Arial,sans-serif;
+background:#f7f8f5;
+color:#222;
+line-height:1.6;
 }
+
+header{
+background:#fff;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:25px;
+font-weight:800;
+color:#16833b;
+}
+
+.logo span{color:#222}
+
+nav a{
+text-decoration:none;
+color:#222;
+margin-left:22px;
+font-weight:600;
+}
+
+.cart{
+background:#16833b;
+color:white;
+padding:10px 16px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin-left:20px;
+}
+
+.hero{
+padding:75px 7%;
+background:linear-gradient(135deg,#e8f7ed,#fff);
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+}
+
+.hero-text{max-width:650px}
+
+.hero h1{
+font-size:48px;
+line-height:1.1;
+margin-bottom:18px;
+}
+
+.hero h1 span{color:#16833b}
+
+.hero p{
+font-size:18px;
+color:#555;
+margin-bottom:25px;
+}
+
+.btn{
+display:inline-block;
+background:#16833b;
+color:white;
+padding:13px 22px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.hero-box{
+font-size:80px;
+background:#fff;
+padding:35px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+section{
+padding:55px 7%;
+}
+
+.section-title{
+text-align:center;
+font-size:32px;
+margin-bottom:30px;
+}
+
+.categories{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.category{
+background:white;
+padding:25px;
+text-align:center;
+border-radius:14px;
+box-shadow:0 4px 15px rgba(0,0,0,.06);
+font-size:18px;
+font-weight:bold;
+}
+
+.category div{
+font-size:42px;
+margin-bottom:8px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.product{
+background:white;
+border-radius:14px;
+padding:20px;
+box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.product-img{
+height:150px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:65px;
+background:#f4f8f3;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.product h3{
+font-size:18px;
+margin-bottom:5px;
+}
+
+.price{
+color:#16833b;
+font-size:20px;
+font-weight:bold;
+margin-bottom:12px;
+}
+
+.add{
+border:0;
+background:#16833b;
+color:white;
+width:100%;
+padding:11px;
+border-radius:7px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.about{
+background:#fff;
+text-align:center;
+}
+
+.about p{
+max-width:750px;
+margin:auto;
+color:#555;
+font-size:17px;
+}
+
+.contact{
+background:#e8f7ed;
+text-align:center;
+}
+
+.contact p{
+margin:8px 0;
+font-size:17px;
+}
+
+footer{
+background:#171717;
+color:#fff;
+text-align:center;
+padding:25px;
+}
+
+.cart-box{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#16833b;
+color:white;
+padding:14px 20px;
+border-radius:50px;
+font-weight:bold;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+z-index:2000;
+}
+
+@media(max-width:900px){
+.categories,.products{
+grid-template-columns:repeat(2,1fr);
+}
+.hero h1{font-size:38px}
+}
+
+@media(max-width:600px){
+header{padding:15px 5%}
+nav a{display:none}
+.hero{
+padding:50px 5%;
+text-align:center;
+flex-direction:column;
+}
+.hero h1{font-size:34px}
+.hero-box{font-size:55px}
+section{padding:40px 5%}
+.categories,.products{
+grid-template-columns:1fr;
+}
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">
-AL TURAB
-<small>MART</small>
-</div>
+<div class="logo">Al Turab <span>Mart</span></div>
 
 <nav>
 <a href="#home">Home</a>
 <a href="#categories">Categories</a>
+<a href="#products">Products</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
+<a class="cart" href="#products">Shop Now</a>
 </nav>
 </header>
 
 <section class="hero" id="home">
 <div class="hero-text">
-<h1>Your Everyday Essentials, Delivered Fast.</h1>
-
+<h1>Your Everyday <span>Groceries</span>, Delivered.</h1>
 <p>
-Welcome to Al Turab Mart — your convenient online mart
-for groceries, drinks, snacks and everyday household essentials.
+Fresh groceries, household essentials and daily-use products —
+all in one place with Al Turab Mart.
 </p>
-
-<div class="buttons">
-<a class="whatsapp" href="https://wa.me/923272199679" target="_blank">
-Order on WhatsApp
-</a>
-
-<a class="call" href="tel:03323655231">
-Call Now
-</a>
-</div>
+<a class="btn" href="#products">Explore Products</a>
 </div>
 
-<div class="delivery">
-<div style="font-size:40px">🚚</div>
-<div class="big">30 MIN</div>
-<p>Fast Home Delivery</p>
-</div>
+<div class="hero-box">🛒🥦🍎</div>
 </section>
 
 <section id="categories">
-<h2 class="title">Shop by Category</h2>
+<h2 class="section-title">Shop By Category</h2>
 
 <div class="categories">
 
 <div class="category">
-<div>🛒</div>
-Grocery
+<div>🥬</div>
+Fresh Vegetables
 </div>
 
 <div class="category">
-<div>🥤</div>
-Drinks
+<div>🍎</div>
+Fresh Fruits
 </div>
 
 <div class="category">
-<div>🍫</div>
-Snacks
+<div>🥛</div>
+Dairy & Eggs
 </div>
 
 <div class="category">
-<div>🏠</div>
-Household
+<div>🧹</div>
+Home Essentials
+</div>
+
+</div>
+</section>
+
+<section id="products">
+<h2 class="section-title">Popular Products</h2>
+
+<div class="products">
+
+<div class="product">
+<div class="product-img">🥚</div>
+<h3>Fresh Eggs</h3>
+<div class="price">Rs. 320</div>
+<button class="add" onclick="addCart('Fresh Eggs')">Add to Cart</button>
+</div>
+
+<div class="product">
+<div class="product-img">🥛</div>
+<h3>Fresh Milk</h3>
+<div class="price">Rs. 250</div>
+<button class="add" onclick="addCart('Fresh Milk')">Add to Cart</button>
+</div>
+
+<div class="product">
+<div class="product-img">🍎</div>
+<h3>Fresh Apples</h3>
+<div class="price">Rs. 450</div>
+<button class="add" onclick="addCart('Fresh Apples')">Add to Cart</button>
+</div>
+
+<div class="product">
+<div class="product-img">🍚</div>
+<h3>Premium Rice</h3>
+<div class="price">Rs. 380</div>
+<button class="add" onclick="addCart('Premium Rice')">Add to Cart</button>
+</div>
+
+<div class="product">
+<div class="product-img">🥔</div>
+<h3>Fresh Potatoes</h3>
+<div class="price">Rs. 180</div>
+<button class="add" onclick="addCart('Fresh Potatoes')">Add to Cart</button>
+</div>
+
+<div class="product">
+<div class="product-img">🍌</div>
+<h3>Fresh Bananas</h3>
+<div class="price">Rs. 220</div>
+<button class="add" onclick="addCart('Fresh Bananas')">Add to Cart</button>
+</div>
+
+<div class="product">
+<div class="product-img">🧴</div>
+<h3>Household Essentials</h3>
+<div class="price">Rs. 500</div>
+<button class="add" onclick="addCart('Household Essentials')">Add to Cart</button>
+</div>
+
+<div class="product">
+<div class="product-img">🍞</div>
+<h3>Fresh Bread</h3>
+<div class="price">Rs. 180</div>
+<button class="add" onclick="addCart('Fresh Bread')">Add to Cart</button>
 </div>
 
 </div>
 </section>
 
 <section class="about" id="about">
-<h2 class="title">About Al Turab Mart</h2>
+<h2 class="section-title">About Al Turab Mart</h2>
 
 <p>
-Al Turab Mart makes everyday shopping simple and convenient.
-Order your daily essentials through WhatsApp and get them
-delivered to your doorstep quickly.
+Al Turab Mart is your online grocery destination for fresh,
+quality and everyday essentials. We aim to make grocery shopping
+simple, convenient and reliable.
 </p>
 </section>
 
 <section class="contact" id="contact">
-<h2 class="title">Contact & Orders</h2>
+<h2 class="section-title">Contact Us</h2>
 
-<div class="card">
-
-<p><strong>📞 Phone:</strong> 0332 3655231</p>
-
-<p><strong>💬 WhatsApp:</strong> 0327 2199679</p>
-
-<p><strong>📍 Location:</strong> Burj-ul-Harmain, Scheme 33</p>
-
-<p><strong>🚚 Delivery:</strong> DHA Phase 8 & nearby areas</p>
+<p>📞 Call / WhatsApp: 0300-0000000</p>
+<p>📍 Karachi, Pakistan</p>
+<p>🛒 Fresh groceries & daily essentials</p>
 
 <br>
 
-<a class="whatsapp buttons"
-href="https://wa.me/923272199679"
-target="_blank">
-Order Now on WhatsApp
+<a class="btn" href="https://wa.me/923000000000" target="_blank">
+Order on WhatsApp
 </a>
-
-</div>
 </section>
 
+<div class="cart-box" id="cart">
+🛒 Cart: 0
+</div>
+
 <footer>
-© 2026 Al Turab Mart. All Rights Reserved.
+<p>© 2026 Al Turab Mart. All Rights Reserved.</p>
 </footer>
+
+<script>
+let cartCount = 0;
+
+function addCart(product){
+cartCount++;
+document.getElementById("cart").innerHTML =
+"🛒 Cart: " + cartCount;
+
+alert(product + " added to cart!");
+}
+</script>
 
 </body>
 </html>
