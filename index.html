@@ -3,330 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al Turab Mart | Online Grocery</title>
+<title>Al Turab Mart</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:Arial,sans-serif;
-background:#f7f8f5;
-color:#222;
-}
-
+body{font-family:Arial,sans-serif;background:#f7f8f5;color:#222}
 header{
-background:#fff;
-padding:18px 6%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-box-shadow:0 2px 12px rgba(0,0,0,.08);
-position:sticky;
-top:0;
-z-index:100;
+background:#111;color:white;padding:18px 6%;
+display:flex;justify-content:space-between;align-items:center;
+position:sticky;top:0;z-index:10
 }
-
-.logo{
-font-size:25px;
-font-weight:800;
-letter-spacing:1px;
-}
-
-.logo small{
-display:block;
-font-size:11px;
-letter-spacing:3px;
-text-align:center;
-}
-
-nav a{
-color:#222;
-text-decoration:none;
-margin:0 10px;
-font-weight:600;
-}
-
-.cart-button{
-border:0;
-background:#222;
-color:#fff;
-padding:11px 16px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-}
-
+.logo{font-size:25px;font-weight:bold}
+.logo span{display:block;font-size:11px;letter-spacing:4px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 8px;font-weight:bold}
+.cart-btn{background:#fff;color:#111;border:0;padding:11px 16px;border-radius:8px;font-weight:bold}
 .hero{
-padding:70px 7%;
-background:linear-gradient(135deg,#eef7ed,#fff);
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:35px;
+padding:65px 7%;text-align:center;
+background:linear-gradient(135deg,#eaf7e8,#fff)
 }
-
-.hero-text{
-max-width:600px;
+.hero h1{font-size:42px;margin-bottom:15px}
+.hero p{font-size:18px;color:#555;margin-bottom:22px}
+.whatsapp{
+display:inline-block;background:#25D366;color:white;
+padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:bold
 }
-
-.hero h1{
-font-size:46px;
-line-height:1.1;
-margin-bottom:18px;
-}
-
-.hero p{
-font-size:18px;
-line-height:1.7;
-color:#555;
-margin-bottom:25px;
-}
-
-.order-btn{
-display:inline-block;
-background:#25D366;
-color:#fff;
-text-decoration:none;
-padding:14px 22px;
-border-radius:8px;
-font-weight:bold;
-}
-
-.delivery{
-background:#fff;
-padding:30px;
-border-radius:18px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-min-width:240px;
-}
-
-.delivery-icon{
-font-size:45px;
-}
-
-.delivery strong{
-display:block;
-font-size:38px;
-margin:10px 0;
-}
-
-section{
-padding:60px 7%;
-}
-
-.section-title{
-text-align:center;
-font-size:32px;
-margin-bottom:35px;
-}
-
+section{padding:50px 7%}
+.title{text-align:center;font-size:30px;margin-bottom:28px}
 .products{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
+display:grid;grid-template-columns:repeat(4,1fr);gap:20px
 }
-
 .product{
-background:#fff;
-padding:18px;
-border-radius:16px;
-text-align:center;
-box-shadow:0 5px 20px rgba(0,0,0,.07);
+background:white;border-radius:15px;padding:15px;text-align:center;
+box-shadow:0 5px 20px #00000012
 }
-
-.product-image{
-height:155px;
-border-radius:12px;
-background:#f3f5f1;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:70px;
-margin-bottom:15px;
+.pic{
+height:180px;background:#f3f4f1;border-radius:12px;
+display:flex;align-items:center;justify-content:center;
+font-size:65px;margin-bottom:12px;overflow:hidden
 }
-
-.product h3{
-font-size:17px;
-margin-bottom:7px;
+.pic img{width:100%;height:100%;object-fit:contain}
+.product h3{margin:8px 0}
+.size{color:#777;font-size:14px;margin-bottom:7px}
+.price{font-size:20px;font-weight:bold;margin:8px}
+.add{
+width:100%;background:#111;color:white;border:0;
+padding:11px;border-radius:8px;font-weight:bold
 }
-
-.size{
-font-size:14px;
-color:#777;
-margin-bottom:7px;
+.cart{
+position:fixed;right:-420px;top:0;width:400px;max-width:90%;
+height:100vh;background:white;z-index:20;padding:22px;
+box-shadow:-5px 0 25px #0004;transition:.3s;overflow:auto
 }
-
-.price{
-font-size:20px;
-font-weight:800;
-margin-bottom:13px;
-}
-
-.add-cart{
-width:100%;
-padding:12px;
-border:0;
-border-radius:8px;
-background:#222;
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-
-.about{
-background:#fff;
-text-align:center;
-}
-
-.about p{
-max-width:750px;
-margin:auto;
-line-height:1.8;
-color:#555;
-font-size:17px;
-}
-
-.contact{
-text-align:center;
-}
-
-.contact-card{
-max-width:650px;
-margin:auto;
-background:#fff;
-padding:30px;
-border-radius:16px;
-box-shadow:0 5px 20px rgba(0,0,0,.07);
-}
-
-.contact-card p{
-margin:12px;
-font-size:17px;
-}
-
-.cart-panel{
-position:fixed;
-right:-430px;
-top:0;
-width:400px;
-max-width:92%;
-height:100vh;
-background:#fff;
-z-index:200;
-box-shadow:-5px 0 25px rgba(0,0,0,.2);
-padding:25px;
-transition:.3s;
-overflow-y:auto;
-}
-
-.cart-panel.open{
-right:0;
-}
-
-.cart-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-}
-
-.close-cart{
-border:0;
-background:#eee;
-padding:8px 12px;
-border-radius:7px;
-cursor:pointer;
-}
-
-.cart-item{
-border-bottom:1px solid #ddd;
-padding:14px 0;
-}
-
-.cart-item strong{
-display:block;
-margin-bottom:7px;
-}
-
-.quantity{
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:8px;
-}
-
-.quantity button{
-width:30px;
-height:30px;
-border:0;
-border-radius:6px;
-background:#222;
-color:#fff;
-cursor:pointer;
-}
-
-.total{
-font-size:22px;
-font-weight:800;
-margin:25px 0;
-}
-
-.whatsapp-checkout{
-display:block;
-text-align:center;
-background:#25D366;
-color:#fff;
-padding:14px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-}
-
-footer{
-background:#222;
-color:#fff;
-text-align:center;
-padding:25px;
-}
+.cart.open{right:0}
+.close{float:right;border:0;padding:8px}
+.item{padding:14px 0;border-bottom:1px solid #ddd}
+.qty button{padding:5px 10px;margin:5px}
+.total{font-size:22px;font-weight:bold;margin:20px 0}
+footer{background:#111;color:white;text-align:center;padding:25px}
 
 @media(max-width:900px){
-.products{
-grid-template-columns:repeat(2,1fr);
+.products{grid-template-columns:repeat(2,1fr)}
 }
-}
-
-@media(max-width:650px){
-
-header{
-padding:15px 5%;
-}
-
-nav{
-display:none;
-}
-
-.hero{
-flex-direction:column;
-text-align:center;
-padding:50px 5%;
-}
-
-.hero h1{
-font-size:36px;
-}
-
-.delivery{
-width:100%;
-}
-
-.products{
-grid-template-columns:1fr;
-}
-
-section{
-padding:50px 5%;
-}
+@media(max-width:600px){
+nav{display:none}
+.products{grid-template-columns:1fr}
+.hero h1{font-size:32px}
 }
 </style>
 </head>
@@ -334,442 +75,253 @@ padding:50px 5%;
 <body>
 
 <header>
-
-<div class="logo">
-AL TURAB
-<small>MART</small>
-</div>
+<div class="logo">AL TURAB<span>MART</span></div>
 
 <nav>
 <a href="#home">Home</a>
 <a href="#drinks">Drinks</a>
 <a href="#breakfast">Breakfast</a>
-<a href="#contact">Contact</a>
+<a href="#fruits">Fruits</a>
+<a href="#meat">Meat</a>
 </nav>
 
-<button class="cart-button" onclick="openCart()">
-🛒 Cart (<span id="cartCount">0</span>)
+<button class="cart-btn" onclick="openCart()">
+🛒 Cart (<span id="count">0</span>)
 </button>
-
 </header>
 
-
 <section class="hero" id="home">
-
-<div class="hero-text">
-
-<h1>Your Everyday Essentials, Delivered Fast.</h1>
-
-<p>
-Shop everyday essentials from Al Turab Mart.
-Order online and get fast home delivery in your area.
-</p>
-
-<a class="order-btn"
-href="https://wa.me/923272199679"
-target="_blank">
+<h1>Al Turab Mart 🛒</h1>
+<p>Your everyday grocery essentials, delivered fast.</p>
+<a class="whatsapp" href="https://wa.me/923272199679" target="_blank">
 💬 Order on WhatsApp
 </a>
-
-</div>
-
-<div class="delivery">
-
-<div class="delivery-icon">🚚</div>
-
-<strong>30 MIN</strong>
-
-<p>Fast Home Delivery</p>
-
-</div>
-
 </section>
 
 
-<!-- JUICES & DRINKS -->
-
+<!-- DRINKS -->
 <section id="drinks">
-
-<h2 class="section-title">🥤 Juices & Drinks</h2>
+<h2 class="title">🥤 Juices & Drinks</h2>
 
 <div class="products">
 
-
 <div class="product">
-
-<div class="product-image">🍹</div>
-
+<div class="pic">🍹</div>
 <h3>Quice Red Anaar</h3>
-
-<div class="size">300ml • Carbonated Drink</div>
-
+<div class="size">300ml Carbonated Drink</div>
 <div class="price">Rs. 70</div>
-
-<button class="add-cart"
-onclick="addToCart('Quice Red Anaar 300ml',70)">
-Add to Cart
-</button>
-
+<button class="add" onclick="add('Quice Red Anaar 300ml',70)">Add to Cart</button>
 </div>
 
-
 <div class="product">
-
-<div class="product-image">🥤</div>
-
+<div class="pic">
+<img src="WhatsApp Image 2026-08-12 at 21.47.32.jpeg">
+</div>
 <h3>Quice Cola</h3>
-
-<div class="size">300ml • Carbonated Drink</div>
-
+<div class="size">300ml Carbonated Drink</div>
 <div class="price">Rs. 70</div>
-
-<button class="add-cart"
-onclick="addToCart('Quice Cola 300ml',70)">
-Add to Cart
-</button>
-
+<button class="add" onclick="add('Quice Cola 300ml',70)">Add to Cart</button>
 </div>
 
-
 <div class="product">
-
-<div class="product-image">🍑</div>
-
+<div class="pic">🍑</div>
 <h3>Quice Peach</h3>
-
-<div class="size">300ml • Carbonated Drink</div>
-
+<div class="size">300ml Carbonated Drink</div>
 <div class="price">Rs. 70</div>
-
-<button class="add-cart"
-onclick="addToCart('Quice Peach 300ml',70)">
-Add to Cart
-</button>
-
+<button class="add" onclick="add('Quice Peach 300ml',70)">Add to Cart</button>
 </div>
 
-
 <div class="product">
-
-<div class="product-image">🧃</div>
-
+<div class="pic">🧃</div>
 <h3>Quice Lychee</h3>
-
-<div class="size">300ml • Carbonated Drink</div>
-
+<div class="size">300ml Carbonated Drink</div>
 <div class="price">Rs. 70</div>
-
-<button class="add-cart"
-onclick="addToCart('Quice Lychee 300ml',70)">
-Add to Cart
-</button>
-
+<button class="add" onclick="add('Quice Lychee 300ml',70)">Add to Cart</button>
 </div>
-
 
 <div class="product">
-
-<div class="product-image">🥭</div>
-
+<div class="pic">🥭</div>
 <h3>Quice Mango Fruit Drink</h3>
-
-<div class="size">200ml • Fruit Drink</div>
-
+<div class="size">200ml</div>
 <div class="price">Rs. 55</div>
-
-<button class="add-cart"
-onclick="addToCart('Quice Mango Fruit Drink 200ml',55)">
-Add to Cart
-</button>
-
+<button class="add" onclick="add('Quice Mango 200ml',55)">Add to Cart</button>
 </div>
 
 </div>
-
 </section>
 
 
 <!-- BREAKFAST -->
-
 <section id="breakfast">
-
-<h2 class="section-title">🍳 Breakfast</h2>
+<h2 class="title">🍳 Breakfast</h2>
 
 <div class="products">
 
-
 <div class="product">
-
-<div class="product-image">🥛</div>
-
+<div class="pic">
+<img src="WhatsApp Image 2026-08-12 at 21.47.31.jpeg">
+</div>
 <h3>Olper's Milk</h3>
-
 <div class="size">1 Litre</div>
-
 <div class="price">Rs. 395</div>
-
-<button class="add-cart"
-onclick="addToCart('Olper’s Milk 1 Litre',395)">
-Add to Cart
-</button>
-
+<button class="add" onclick="add('Olper’s Milk 1 Litre',395)">Add to Cart</button>
 </div>
 
-
 <div class="product">
-
-<div class="product-image">🧈</div>
-
+<div class="pic">
+<img src="WhatsApp Image 2026-08-12 at 21.47.32 (1).jpeg">
+</div>
 <h3>Blue Band</h3>
-
 <div class="size">50g</div>
-
 <div class="price">Rs. 120</div>
-
-<button class="add-cart"
-onclick="addToCart('Blue Band 50g',120)">
-Add to Cart
-</button>
-
+<button class="add" onclick="add('Blue Band 50g',120)">Add to Cart</button>
 </div>
-
 
 <div class="product">
-
-<div class="product-image">🍞</div>
-
+<div class="pic">
+<img src="WhatsApp Image 2026-08-12 at 21.47.31 (1).jpeg">
+</div>
 <h3>Bake Parlor Bread</h3>
-
 <div class="size">Bread</div>
-
 <div class="price">Rs. 150</div>
-
-<button class="add-cart"
-onclick="addToCart('Bake Parlor Bread',150)">
-Add to Cart
-</button>
-
+<button class="add" onclick="add('Bake Parlor Bread',150)">Add to Cart</button>
 </div>
 
 </div>
-
 </section>
 
 
-<section class="about">
+<!-- FRUITS -->
+<section id="fruits">
+<h2 class="title">🍌 Fruits</h2>
 
-<h2 class="section-title">About Al Turab Mart</h2>
+<div class="products">
 
-<p>
-Al Turab Mart makes everyday shopping simple and convenient.
-Choose your products, add them to your cart and send your
-complete order directly to us on WhatsApp.
-</p>
+<div class="product">
+<div class="pic">🍌</div>
+<h3>Bananas</h3>
+<div class="size">1 Dozen</div>
+<div class="price">Rs. 160</div>
+<button class="add" onclick="add('Bananas 1 Dozen',160)">Add to Cart</button>
+</div>
 
+</div>
 </section>
 
 
-<section class="contact" id="contact">
+<!-- MEAT -->
+<section id="meat">
+<h2 class="title">🍗 Meat</h2>
 
-<h2 class="section-title">Contact & Orders</h2>
+<div class="products">
 
-<div class="contact-card">
+<div class="product">
+<div class="pic">🍗</div>
+<h3>Chicken</h3>
+<div class="size">1 Kg</div>
+<div class="price">Rs. 540</div>
+<button class="add" onclick="add('Chicken 1 Kg',540)">Add to Cart</button>
+</div>
 
-<p><strong>📞 Phone:</strong> 0332 3655231</p>
+</div>
+</section>
 
-<p><strong>💬 WhatsApp:</strong> 0327 2199679</p>
 
-<p><strong>📍 Service Area:</strong> Burj-ul-Harmain, Scheme 33</p>
-
-<p><strong>🚚 Delivery:</strong> DHA Phase 8 & nearby areas</p>
-
+<!-- CART -->
+<div class="cart" id="cart">
+<button class="close" onclick="closeCart()">✕</button>
+<h2>🛒 Your Cart</h2>
 <br>
+<div id="items">Your cart is empty.</div>
+<div class="total">Total: Rs. <span id="total">0</span></div>
 
-<a class="order-btn"
-href="https://wa.me/923272199679"
-target="_blank">
-Order on WhatsApp
-</a>
-
-</div>
-
-</section>
-
-
-<!-- SHOPPING CART -->
-
-<div class="cart-panel" id="cartPanel">
-
-<div class="cart-header">
-
-<h2>Your Cart</h2>
-
-<button class="close-cart" onclick="closeCart()">✕</button>
-
-</div>
-
-<div id="cartItems">
-Your cart is empty.
-</div>
-
-<div class="total">
-Total: Rs. <span id="cartTotal">0</span>
-</div>
-
-<a id="checkout"
-class="whatsapp-checkout"
-href="#"
-target="_blank">
+<a id="order" class="whatsapp" target="_blank">
 Send Order on WhatsApp
 </a>
-
 </div>
 
 
 <footer>
-
-© 2026 Al Turab Mart. All Rights Reserved.
-
+© 2026 Al Turab Mart — Online Grocery
 </footer>
 
 
 <script>
-
 let cart=[];
 
-function addToCart(name,price){
+function add(name,price){
+let x=cart.find(i=>i.name===name);
 
-let item=cart.find(product=>product.name===name);
-
-if(item){
-
-item.quantity++;
-
+if(x){
+x.qty++;
 }else{
-
-cart.push({
-name:name,
-price:price,
-quantity:1
-});
-
+cart.push({name:name,price:price,qty:1});
 }
 
-updateCart();
-
+update();
 openCart();
-
 }
 
+function update(){
 
-function changeQuantity(index,amount){
-
-cart[index].quantity+=amount;
-
-if(cart[index].quantity<=0){
-
-cart.splice(index,1);
-
-}
-
-updateCart();
-
-}
-
-
-function updateCart(){
-
-let items=document.getElementById("cartItems");
-
+let html="";
 let total=0;
-
 let count=0;
 
-if(cart.length===0){
+cart.forEach((x,i)=>{
 
-items.innerHTML="Your cart is empty.";
+let sub=x.price*x.qty;
+total+=sub;
+count+=x.qty;
 
-}else{
-
-items.innerHTML="";
-
-cart.forEach((item,index)=>{
-
-let subtotal=item.price*item.quantity;
-
-total+=subtotal;
-
-count+=item.quantity;
-
-let div=document.createElement("div");
-
-div.className="cart-item";
-
-div.innerHTML=`
-
-<strong>${item.name}</strong>
-
-Rs. ${item.price} × ${item.quantity}
-= Rs. ${subtotal}
-
-<div class="quantity">
-
-<button onclick="changeQuantity(${index},-1)">−</button>
-
-<span>${item.quantity}</span>
-
-<button onclick="changeQuantity(${index},1)">+</button>
-
+html+=`
+<div class="item">
+<b>${x.name}</b><br>
+Rs. ${x.price} × ${x.qty} = Rs. ${sub}
+<div class="qty">
+<button onclick="change(${i},-1)">−</button>
+${x.qty}
+<button onclick="change(${i},1)">+</button>
 </div>
-
+</div>
 `;
-
-items.appendChild(div);
-
 });
 
-}
+document.getElementById("items").innerHTML=
+html || "Your cart is empty.";
 
-document.getElementById("cartCount").innerText=count;
+document.getElementById("total").innerText=total;
+document.getElementById("count").innerText=count;
 
-document.getElementById("cartTotal").innerText=total;
+let msg="Al Turab Mart Order:%0A%0A";
 
-let message="Al Turab Mart Order:\n\n";
-
-cart.forEach(item=>{
-
-message+=item.name+
-" x "+item.quantity+
-" = Rs. "+
-(item.price*item.quantity)+
-"\n";
-
+cart.forEach(x=>{
+msg+=x.name+" x "+x.qty+"%0A";
 });
 
-message+="\nTotal: Rs. "+total;
+msg+="%0ATotal: Rs. "+total;
 
-document.getElementById("checkout").href=
-"https://wa.me/923272199679?text="+
-encodeURIComponent(message);
-
+document.getElementById("order").href=
+"https://wa.me/923272199679?text="+msg;
 }
 
+function change(i,n){
+cart[i].qty+=n;
+
+if(cart[i].qty<=0){
+cart.splice(i,1);
+}
+
+update();
+}
 
 function openCart(){
-
-document.getElementById("cartPanel")
-.classList.add("open");
-
+document.getElementById("cart").classList.add("open");
 }
-
 
 function closeCart(){
-
-document.getElementById("cartPanel")
-.classList.remove("open");
-
+document.getElementById("cart").classList.remove("open");
 }
-
 </script>
 
 </body>
