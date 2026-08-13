@@ -3,71 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al Turab Mart</title>
+<title>Al Turab Mart | Online Grocery</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f7f8f5;color:#222}
+
+html{scroll-behavior:smooth}
+
+body{
+font-family:Arial,sans-serif;
+background:#f7f8f5;
+color:#222;
+}
+
 header{
-background:#111;color:white;padding:18px 6%;
-display:flex;justify-content:space-between;align-items:center;
-position:sticky;top:0;z-index:10
+background:#111;
+color:white;
+padding:18px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:10;
 }
-.logo{font-size:25px;font-weight:bold}
-.logo span{display:block;font-size:11px;letter-spacing:4px;text-align:center}
-nav a{color:white;text-decoration:none;margin:0 8px;font-weight:bold}
-.cart-btn{background:#fff;color:#111;border:0;padding:11px 16px;border-radius:8px;font-weight:bold}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+}
+
+.logo span{
+display:block;
+font-size:11px;
+letter-spacing:4px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 8px;
+font-weight:bold;
+}
+
+.cart-btn{
+background:#fff;
+color:#111;
+border:0;
+padding:11px 16px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
 .hero{
-padding:65px 7%;text-align:center;
-background:linear-gradient(135deg,#eaf7e8,#fff)
+padding:65px 7%;
+text-align:center;
+background:linear-gradient(135deg,#eaf7e8,#fff);
 }
-.hero h1{font-size:42px;margin-bottom:15px}
-.hero p{font-size:18px;color:#555;margin-bottom:22px}
+
+.hero h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+color:#555;
+margin-bottom:22px;
+}
+
+.hero-info{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+margin:22px 0;
+}
+
+.info-badge{
+background:white;
+padding:10px 16px;
+border-radius:30px;
+box-shadow:0 3px 12px #00000012;
+font-weight:bold;
+font-size:14px;
+}
+
 .whatsapp{
-display:inline-block;background:#25D366;color:white;
-padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:bold
+display:inline-block;
+background:#25D366;
+color:white;
+padding:13px 22px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
 }
-section{padding:50px 7%}
-.title{text-align:center;font-size:30px;margin-bottom:28px}
+
+section{
+padding:50px 7%;
+}
+
+.title{
+text-align:center;
+font-size:30px;
+margin-bottom:28px;
+}
+
 .products{
-display:grid;grid-template-columns:repeat(4,1fr);gap:20px
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
 }
+
 .product{
-background:white;border-radius:15px;padding:15px;text-align:center;
-box-shadow:0 5px 20px #00000012
+background:white;
+border-radius:15px;
+padding:15px;
+text-align:center;
+box-shadow:0 5px 20px #00000012;
 }
+
 .pic{
-height:180px;background:#f3f4f1;border-radius:12px;
-display:flex;align-items:center;justify-content:center;
-font-size:65px;margin-bottom:12px;overflow:hidden
+height:180px;
+background:#f3f4f1;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:65px;
+margin-bottom:12px;
+overflow:hidden;
 }
-.pic img{width:100%;height:100%;object-fit:contain}
-.product h3{margin:8px 0}
-.size{color:#777;font-size:14px;margin-bottom:7px}
-.price{font-size:20px;font-weight:bold;margin:8px}
+
+.pic img{
+width:100%;
+height:100%;
+object-fit:contain;
+}
+
+.product h3{
+margin:8px 0;
+}
+
+.size{
+color:#777;
+font-size:14px;
+margin-bottom:7px;
+}
+
+.price{
+font-size:20px;
+font-weight:bold;
+margin:8px;
+}
+
 .add{
-width:100%;background:#111;color:white;border:0;
-padding:11px;border-radius:8px;font-weight:bold
+width:100%;
+background:#111;
+color:white;
+border:0;
+padding:11px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
 }
+
+.delivery{
+background:#111;
+color:white;
+text-align:center;
+padding:40px 7%;
+}
+
+.delivery h2{
+font-size:30px;
+margin-bottom:15px;
+}
+
+.delivery p{
+font-size:17px;
+line-height:1.8;
+}
+
+.delivery strong{
+color:#b8f5a9;
+}
+
+.contact{
+background:#fff;
+text-align:center;
+}
+
+.contact-box{
+max-width:700px;
+margin:auto;
+background:#f7f8f5;
+padding:30px;
+border-radius:18px;
+box-shadow:0 5px 20px #00000010;
+}
+
+.contact-box p{
+margin:12px 0;
+font-size:16px;
+}
+
+.contact-box a{
+color:#111;
+font-weight:bold;
+text-decoration:none;
+}
+
+.branding{
+margin-top:25px;
+padding-top:20px;
+border-top:1px solid #ddd;
+font-size:14px;
+color:#666;
+}
+
 .cart{
-position:fixed;right:-420px;top:0;width:400px;max-width:90%;
-height:100vh;background:white;z-index:20;padding:22px;
-box-shadow:-5px 0 25px #0004;transition:.3s;overflow:auto
+position:fixed;
+right:-420px;
+top:0;
+width:400px;
+max-width:90%;
+height:100vh;
+background:white;
+z-index:20;
+padding:22px;
+box-shadow:-5px 0 25px #0004;
+transition:.3s;
+overflow:auto;
 }
-.cart.open{right:0}
-.close{float:right;border:0;padding:8px}
-.item{padding:14px 0;border-bottom:1px solid #ddd}
-.qty button{padding:5px 10px;margin:5px}
-.total{font-size:22px;font-weight:bold;margin:20px 0}
-footer{background:#111;color:white;text-align:center;padding:25px}
+
+.cart.open{
+right:0;
+}
+
+.close{
+float:right;
+border:0;
+padding:8px;
+cursor:pointer;
+}
+
+.item{
+padding:14px 0;
+border-bottom:1px solid #ddd;
+}
+
+.qty button{
+padding:5px 10px;
+margin:5px;
+cursor:pointer;
+}
+
+.total{
+font-size:22px;
+font-weight:bold;
+margin:20px 0;
+}
+
+.delivery-note{
+background:#f0f8ed;
+padding:12px;
+border-radius:10px;
+margin-bottom:15px;
+font-size:14px;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+.footer-small{
+font-size:12px;
+color:#aaa;
+margin-top:8px;
+}
 
 @media(max-width:900px){
-.products{grid-template-columns:repeat(2,1fr)}
+.products{
+grid-template-columns:repeat(2,1fr);
 }
+}
+
 @media(max-width:600px){
-nav{display:none}
-.products{grid-template-columns:1fr}
-.hero h1{font-size:32px}
+nav{
+display:none;
+}
+
+.products{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero-info{
+flex-direction:column;
+align-items:center;
+}
+
+section{
+padding:40px 5%;
+}
 }
 </style>
 </head>
@@ -75,7 +322,11 @@ nav{display:none}
 <body>
 
 <header>
-<div class="logo">AL TURAB<span>MART</span></div>
+
+<div class="logo">
+AL TURAB
+<span>MART</span>
+</div>
 
 <nav>
 <a href="#home">Home</a>
@@ -83,68 +334,173 @@ nav{display:none}
 <a href="#breakfast">Breakfast</a>
 <a href="#fruits">Fruits</a>
 <a href="#meat">Meat</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <button class="cart-btn" onclick="openCart()">
 🛒 Cart (<span id="count">0</span>)
 </button>
+
 </header>
 
+
+<!-- HOME -->
+
 <section class="hero" id="home">
+
 <h1>Al Turab Mart 🛒</h1>
-<p>Your everyday grocery essentials, delivered fast.</p>
-<a class="whatsapp" href="https://wa.me/923272199679" target="_blank">
+
+<p>
+Your everyday grocery essentials, delivered fast.
+</p>
+
+<div class="hero-info">
+
+<div class="info-badge">
+🕐 Open 24 Hours
+</div>
+
+<div class="info-badge">
+⚡ 15–30 Min Delivery
+</div>
+
+<div class="info-badge">
+🚚 Rs. 50 Delivery
+</div>
+
+<div class="info-badge">
+🎉 Rs. 500+ FREE Delivery
+</div>
+
+</div>
+
+<a class="whatsapp"
+href="https://wa.me/923272199679"
+target="_blank">
 💬 Order on WhatsApp
 </a>
+
 </section>
 
 
 <!-- DRINKS -->
+
 <section id="drinks">
+
 <h2 class="title">🥤 Juices & Drinks</h2>
 
 <div class="products">
 
-<div class="product">
-<div class="pic">🍹</div>
-<h3>Quice Red Anaar</h3>
-<div class="size">300ml Carbonated Drink</div>
-<div class="price">Rs. 70</div>
-<button class="add" onclick="add('Quice Red Anaar 300ml',70)">Add to Cart</button>
-</div>
 
 <div class="product">
+
+<div class="pic">🍹</div>
+
+<h3>Quice Red Anaar</h3>
+
+<div class="size">
+300ml Carbonated Drink
+</div>
+
+<div class="price">
+Rs. 70
+</div>
+
+<button class="add"
+onclick="add('Quice Red Anaar 300ml',70)">
+Add to Cart
+</button>
+
+</div>
+
+
+<div class="product">
+
 <div class="pic">
 <img src="WhatsApp Image 2026-08-12 at 21.47.31.jpeg">
 </div>
+
 <h3>Quice Cola</h3>
-<div class="size">300ml Carbonated Drink</div>
-<div class="price">Rs. 70</div>
-<button class="add" onclick="add('Quice Cola 300ml',70)">Add to Cart</button>
+
+<div class="size">
+300ml Carbonated Drink
 </div>
 
+<div class="price">
+Rs. 70
+</div>
+
+<button class="add"
+onclick="add('Quice Cola 300ml',70)">
+Add to Cart
+</button>
+
+</div>
+
+
 <div class="product">
+
 <div class="pic">🍑</div>
+
 <h3>Quice Peach</h3>
-<div class="size">300ml Carbonated Drink</div>
-<div class="price">Rs. 70</div>
-<button class="add" onclick="add('Quice Peach 300ml',70)">Add to Cart</button>
+
+<div class="size">
+300ml Carbonated Drink
 </div>
 
+<div class="price">
+Rs. 70
+</div>
+
+<button class="add"
+onclick="add('Quice Peach 300ml',70)">
+Add to Cart
+</button>
+
+</div>
+
+
 <div class="product">
+
 <div class="pic">🧃</div>
+
 <h3>Quice Lychee</h3>
-<div class="size">300ml Carbonated Drink</div>
-<div class="price">Rs. 70</div>
-<button class="add" onclick="add('Quice Lychee 300ml',70)">Add to Cart</button>
+
+<div class="size">
+300ml Carbonated Drink
 </div>
 
+<div class="price">
+Rs. 70
+</div>
+
+<button class="add"
+onclick="add('Quice Lychee 300ml',70)">
+Add to Cart
+</button>
+
+</div>
+
+
 <div class="product">
+
 <div class="pic">🥭</div>
+
 <h3>Quice Mango Fruit Drink</h3>
-<div class="size">200ml</div>
-<div class="price">Rs. 55</div>
-<button class="add" onclick="add('Quice Mango 200ml',55)">Add to Cart</button>
+
+<div class="size">
+200ml
+</div>
+
+<div class="price">
+Rs. 55
+</div>
+
+<button class="add"
+onclick="add('Quice Mango 200ml',55)">
+Add to Cart
+</button>
+
 </div>
 
 </div>
@@ -152,40 +508,114 @@ nav{display:none}
 
 
 <!-- BREAKFAST -->
+
 <section id="breakfast">
+
 <h2 class="title">🍳 Breakfast</h2>
 
 <div class="products">
 
 
-
 <div class="product">
+
 <div class="pic">
 <img src="WhatsApp Image 2026-08-12 at 21.47.31 (1).jpeg">
 </div>
+
 <h3>Blue Band</h3>
-<div class="size">50g</div>
-<div class="price">Rs. 120</div>
-<button class="add" onclick="add('Blue Band 50g',120)">Add to Cart</button>
+
+<div class="size">
+50g
 </div>
 
+<div class="price">
+Rs. 120
+</div>
+
+<button class="add"
+onclick="add('Blue Band 50g',120)">
+Add to Cart
+</button>
+
+</div>
+
+
+<!-- TEMPORARY PRODUCTS: images will be added at night -->
+
+<div class="product">
+
+<div class="pic">🥛</div>
+
+<h3>Olpers Milk</h3>
+
+<div class="size">
+1 Liter
+</div>
+
+<div class="price">
+Rs. 395
+</div>
+
+<button class="add"
+onclick="add('Olpers Milk 1L',395)">
+Add to Cart
+</button>
+
+</div>
+
+
+<div class="product">
+
+<div class="pic">🍞</div>
+
+<h3>Bake Parlor Bread</h3>
+
+<div class="size">
+1 Pack
+</div>
+
+<div class="price">
+Rs. 150
+</div>
+
+<button class="add"
+onclick="add('Bake Parlor Bread',150)">
+Add to Cart
+</button>
+
+</div>
 
 </div>
 </section>
 
 
 <!-- FRUITS -->
+
 <section id="fruits">
+
 <h2 class="title">🍌 Fruits</h2>
 
 <div class="products">
 
 <div class="product">
+
 <div class="pic">🍌</div>
+
 <h3>Bananas</h3>
-<div class="size">1 Dozen</div>
-<div class="price">Rs. 160</div>
-<button class="add" onclick="add('Bananas 1 Dozen',160)">Add to Cart</button>
+
+<div class="size">
+1 Dozen
+</div>
+
+<div class="price">
+Rs. 160
+</div>
+
+<button class="add"
+onclick="add('Bananas 1 Dozen',160)">
+Add to Cart
+</button>
+
 </div>
 
 </div>
@@ -193,102 +623,308 @@ nav{display:none}
 
 
 <!-- MEAT -->
+
 <section id="meat">
+
 <h2 class="title">🍗 Meat</h2>
 
 <div class="products">
 
 <div class="product">
+
 <div class="pic">🍗</div>
+
 <h3>Chicken</h3>
-<div class="size">1 Kg</div>
-<div class="price">Rs. 540</div>
-<button class="add" onclick="add('Chicken 1 Kg',540)">Add to Cart</button>
+
+<div class="size">
+1 Kg
+</div>
+
+<div class="price">
+Rs. 540
+</div>
+
+<button class="add"
+onclick="add('Chicken 1 Kg',540)">
+Add to Cart
+</button>
+
 </div>
 
 </div>
 </section>
 
 
-<!-- CART -->
-<div class="cart" id="cart">
-<button class="close" onclick="closeCart()">✕</button>
-<h2>🛒 Your Cart</h2>
-<br>
-<div id="items">Your cart is empty.</div>
-<div class="total">Total: Rs. <span id="total">0</span></div>
+<!-- DELIVERY -->
 
-<a id="order" class="whatsapp" target="_blank">
+<section class="delivery">
+
+<h2>🚚 Fast Local Delivery</h2>
+
+<p>
+Orders are delivered in approximately
+<strong>15–30 minutes</strong>.
+</p>
+
+<p>
+Standard delivery: <strong>Rs. 50</strong>
+</p>
+
+<p>
+Shop for <strong>Rs. 500 or more</strong> and get
+<strong>FREE delivery!</strong>
+</p>
+
+<p>
+🕐 <strong>Open 24 Hours</strong>
+</p>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<h2 class="title">📞 Contact Al Turab Mart</h2>
+
+<div class="contact-box">
+
+<p>
+📍 <strong>Online Mart Location</strong><br>
+Burj-ul-Harmain, Scheme 33
+</p>
+
+<p>
+🚚 <strong>Delivery Area</strong><br>
+DHA Phase 8 and surrounding areas
+</p>
+
+<p>
+🕐 <strong>Open 24 Hours</strong>
+</p>
+
+<p>
+⚡ <strong>Delivery Time:</strong> 15–30 Minutes
+</p>
+
+<p>
+📦 <strong>Delivery:</strong> Rs. 50
+</p>
+
+<p>
+🎉 <strong>Rs. 500+ Shopping:</strong> FREE Delivery
+</p>
+
+<br>
+
+<a class="whatsapp"
+href="https://wa.me/923272199679"
+target="_blank">
+💬 Chat on WhatsApp
+</a>
+
+<div class="branding">
+
+<strong>Founded & Managed by Mirhadi</strong>
+
+<br><br>
+
+Digital Solutions by
+<strong>Trevix Style</strong>
+<br>
+AI Automation & Web Development
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+<button class="close"
+onclick="closeCart()">
+✕
+</button>
+
+<h2>🛒 Your Cart</h2>
+
+<br>
+
+<div id="items">
+Your cart is empty.
+</div>
+
+<div class="delivery-note">
+🚚 Delivery: Rs. 50<br>
+🎉 Orders of Rs. 500+ get FREE delivery.
+</div>
+
+<div class="total">
+Subtotal: Rs. <span id="subtotal">0</span>
+</div>
+
+<div class="total">
+Delivery: Rs. <span id="delivery">0</span>
+</div>
+
+<div class="total">
+Total: Rs. <span id="total">0</span>
+</div>
+
+<a id="order"
+class="whatsapp"
+target="_blank">
 Send Order on WhatsApp
 </a>
+
 </div>
 
 
 <footer>
+
 © 2026 Al Turab Mart — Online Grocery
+
+<div class="footer-small">
+Founded & Managed by Mirhadi
+</div>
+
+<div class="footer-small">
+Digital Solutions by Trevix Style — AI Automation & Web Development
+</div>
+
 </footer>
 
 
 <script>
+
 let cart=[];
 
+
 function add(name,price){
+
 let x=cart.find(i=>i.name===name);
 
 if(x){
 x.qty++;
 }else{
-cart.push({name:name,price:price,qty:1});
+cart.push({
+name:name,
+price:price,
+qty:1
+});
 }
 
 update();
 openCart();
+
 }
+
 
 function update(){
 
 let html="";
-let total=0;
+let subtotal=0;
 let count=0;
 
 cart.forEach((x,i)=>{
 
 let sub=x.price*x.qty;
-total+=sub;
+
+subtotal+=sub;
 count+=x.qty;
 
 html+=`
+
 <div class="item">
-<b>${x.name}</b><br>
-Rs. ${x.price} × ${x.qty} = Rs. ${sub}
+
+<b>${x.name}</b>
+<br>
+
+Rs. ${x.price} × ${x.qty}
+= Rs. ${sub}
+
 <div class="qty">
-<button onclick="change(${i},-1)">−</button>
+
+<button onclick="change(${i},-1)">
+−
+</button>
+
 ${x.qty}
-<button onclick="change(${i},1)">+</button>
+
+<button onclick="change(${i},1)">
++
+</button>
+
 </div>
+
 </div>
+
 `;
+
 });
+
 
 document.getElementById("items").innerHTML=
 html || "Your cart is empty.";
 
-document.getElementById("total").innerText=total;
+document.getElementById("subtotal").innerText=subtotal;
+
 document.getElementById("count").innerText=count;
 
-let msg="Al Turab Mart Order:%0A%0A";
+
+let delivery=0;
+
+if(subtotal>0 && subtotal<500){
+delivery=50;
+}
+
+document.getElementById("delivery").innerText=delivery;
+
+
+let total=subtotal+delivery;
+
+document.getElementById("total").innerText=total;
+
+
+let msg=
+"Al Turab Mart Order:%0A%0A";
 
 cart.forEach(x=>{
-msg+=x.name+" x "+x.qty+"%0A";
+
+msg+=
+x.name+
+" x "+
+x.qty+
+"%0A";
+
 });
 
-msg+="%0ATotal: Rs. "+total;
+msg+=
+"%0ASubtotal: Rs. "+
+subtotal;
+
+msg+=
+"%0ADelivery: Rs. "+
+delivery;
+
+msg+=
+"%0ATotal: Rs. "+
+total;
+
 
 document.getElementById("order").href=
 "https://wa.me/923272199679?text="+msg;
+
 }
 
+
 function change(i,n){
+
 cart[i].qty+=n;
 
 if(cart[i].qty<=0){
@@ -296,15 +932,29 @@ cart.splice(i,1);
 }
 
 update();
+
 }
+
 
 function openCart(){
-document.getElementById("cart").classList.add("open");
+
+document
+.getElementById("cart")
+.classList
+.add("open");
+
 }
 
+
 function closeCart(){
-document.getElementById("cart").classList.remove("open");
+
+document
+.getElementById("cart")
+.classList
+.remove("open");
+
 }
+
 </script>
 
 </body>
