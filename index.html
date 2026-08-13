@@ -7,7 +7,6 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -28,10 +27,7 @@ top:0;
 z-index:10;
 }
 
-.logo{
-font-size:25px;
-font-weight:bold;
-}
+.logo{font-size:25px;font-weight:bold}
 
 .logo span{
 display:block;
@@ -101,9 +97,7 @@ text-decoration:none;
 font-weight:bold;
 }
 
-section{
-padding:50px 7%;
-}
+section{padding:50px 7%}
 
 .title{
 text-align:center;
@@ -143,9 +137,7 @@ height:100%;
 object-fit:contain;
 }
 
-.product h3{
-margin:8px 0;
-}
+.product h3{margin:8px 0}
 
 .size{
 color:#777;
@@ -157,6 +149,25 @@ margin-bottom:7px;
 font-size:20px;
 font-weight:bold;
 margin:8px;
+}
+
+.old-price{
+color:#888;
+text-decoration:line-through;
+font-size:15px;
+margin-right:5px;
+font-weight:normal;
+}
+
+.discount{
+display:inline-block;
+background:#e53935;
+color:white;
+padding:4px 8px;
+border-radius:5px;
+font-size:12px;
+font-weight:bold;
+margin-bottom:8px;
 }
 
 .add{
@@ -187,9 +198,7 @@ font-size:17px;
 line-height:1.8;
 }
 
-.delivery strong{
-color:#b8f5a9;
-}
+.delivery strong{color:#b8f5a9}
 
 .contact{
 background:#fff;
@@ -208,12 +217,6 @@ box-shadow:0 5px 20px #00000010;
 .contact-box p{
 margin:12px 0;
 font-size:16px;
-}
-
-.contact-box a{
-color:#111;
-font-weight:bold;
-text-decoration:none;
 }
 
 .branding{
@@ -239,9 +242,7 @@ transition:.3s;
 overflow:auto;
 }
 
-.cart.open{
-right:0;
-}
+.cart.open{right:0}
 
 .close{
 float:right;
@@ -289,32 +290,21 @@ margin-top:8px;
 }
 
 @media(max-width:900px){
-.products{
-grid-template-columns:repeat(2,1fr);
-}
+.products{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:600px){
-nav{
-display:none;
-}
+nav{display:none}
+.products{grid-template-columns:1fr}
 
-.products{
-grid-template-columns:1fr;
-}
-
-.hero h1{
-font-size:32px;
-}
+.hero h1{font-size:32px}
 
 .hero-info{
 flex-direction:column;
 align-items:center;
 }
 
-section{
-padding:40px 5%;
-}
+section{padding:40px 5%}
 }
 </style>
 </head>
@@ -332,6 +322,7 @@ AL TURAB
 <a href="#home">Home</a>
 <a href="#drinks">Drinks</a>
 <a href="#breakfast">Breakfast</a>
+<a href="#vegetables">Vegetables</a>
 <a href="#fruits">Fruits</a>
 <a href="#meat">Meat</a>
 <a href="#contact">Contact</a>
@@ -344,33 +335,18 @@ AL TURAB
 </header>
 
 
-<!-- HOME -->
-
 <section class="hero" id="home">
 
 <h1>Al Turab Mart 🛒</h1>
 
-<p>
-Your everyday grocery essentials, delivered fast.
-</p>
+<p>Your everyday grocery essentials, delivered fast.</p>
 
 <div class="hero-info">
 
-<div class="info-badge">
-🕐 Open 24 Hours
-</div>
-
-<div class="info-badge">
-⚡ 15–30 Min Delivery
-</div>
-
-<div class="info-badge">
-🚚 Rs. 50 Delivery
-</div>
-
-<div class="info-badge">
-🎉 Rs. 500+ FREE Delivery
-</div>
+<div class="info-badge">🕐 Open 24 Hours</div>
+<div class="info-badge">⚡ 15–30 Min Delivery</div>
+<div class="info-badge">🚚 Rs. 50 Delivery</div>
+<div class="info-badge">🎉 Rs. 500+ FREE Delivery</div>
 
 </div>
 
@@ -383,131 +359,57 @@ target="_blank">
 </section>
 
 
-<!-- DRINKS -->
-
 <section id="drinks">
 
 <h2 class="title">🥤 Juices & Drinks</h2>
 
 <div class="products">
 
-
 <div class="product">
-
 <div class="pic">🍹</div>
-
 <h3>Quice Red Anaar</h3>
-
-<div class="size">
-300ml Carbonated Drink
+<div class="size">300ml Carbonated Drink</div>
+<div class="price">Rs. 70</div>
+<button class="add" onclick="add('Quice Red Anaar 300ml',70)">Add to Cart</button>
 </div>
-
-<div class="price">
-Rs. 70
-</div>
-
-<button class="add"
-onclick="add('Quice Red Anaar 300ml',70)">
-Add to Cart
-</button>
-
-</div>
-
 
 <div class="product">
-
 <div class="pic">
-<img src="WhatsApp Image 2026-08-12 at 21.47.31.jpeg">
+<img src="WhatsApp%20Image%202026-08-12%20at%2021.47.31.jpeg">
 </div>
-
 <h3>Quice Cola</h3>
-
-<div class="size">
-300ml Carbonated Drink
+<div class="size">300ml Carbonated Drink</div>
+<div class="price">Rs. 70</div>
+<button class="add" onclick="add('Quice Cola 300ml',70)">Add to Cart</button>
 </div>
-
-<div class="price">
-Rs. 70
-</div>
-
-<button class="add"
-onclick="add('Quice Cola 300ml',70)">
-Add to Cart
-</button>
-
-</div>
-
 
 <div class="product">
-
 <div class="pic">🍑</div>
-
 <h3>Quice Peach</h3>
-
-<div class="size">
-300ml Carbonated Drink
+<div class="size">300ml Carbonated Drink</div>
+<div class="price">Rs. 70</div>
+<button class="add" onclick="add('Quice Peach 300ml',70)">Add to Cart</button>
 </div>
-
-<div class="price">
-Rs. 70
-</div>
-
-<button class="add"
-onclick="add('Quice Peach 300ml',70)">
-Add to Cart
-</button>
-
-</div>
-
 
 <div class="product">
-
 <div class="pic">🧃</div>
-
 <h3>Quice Lychee</h3>
-
-<div class="size">
-300ml Carbonated Drink
+<div class="size">300ml Carbonated Drink</div>
+<div class="price">Rs. 70</div>
+<button class="add" onclick="add('Quice Lychee 300ml',70)">Add to Cart</button>
 </div>
-
-<div class="price">
-Rs. 70
-</div>
-
-<button class="add"
-onclick="add('Quice Lychee 300ml',70)">
-Add to Cart
-</button>
-
-</div>
-
 
 <div class="product">
-
 <div class="pic">🥭</div>
-
 <h3>Quice Mango Fruit Drink</h3>
-
-<div class="size">
-200ml
-</div>
-
-<div class="price">
-Rs. 55
-</div>
-
-<button class="add"
-onclick="add('Quice Mango 200ml',55)">
-Add to Cart
-</button>
-
+<div class="size">200ml</div>
+<div class="price">Rs. 55</div>
+<button class="add" onclick="add('Quice Mango 200ml',55)">Add to Cart</button>
 </div>
 
 </div>
 </section>
 
-
-<!-- BREAKFAST -->
 
 <section id="breakfast">
 
@@ -515,49 +417,34 @@ Add to Cart
 
 <div class="products">
 
+<div class="product">
+
+<div class="pic">
+<img src="WhatsApp%20Image%202026-08-12%20at%2021.47.31%20(1).jpeg">
+</div>
+
+<h3>Blue Band</h3>
+<div class="size">50g</div>
+<div class="price">Rs. 120</div>
+
+<button class="add" onclick="add('Blue Band 50g',120)">
+Add to Cart
+</button>
+
+</div>
+
 
 <div class="product">
 
 <div class="pic">
-<img src="WhatsApp Image 2026-08-12 at 21.47.31 (1).jpeg">
+<img src="Images%2016%20olpers.jpg">
 </div>
-
-<h3>Blue Band</h3>
-
-<div class="size">
-50g
-</div>
-
-<div class="price">
-Rs. 120
-</div>
-
-<button class="add"
-onclick="add('Blue Band 50g',120)">
-Add to Cart
-</button>
-
-</div>
-
-
-<!-- TEMPORARY PRODUCTS: images will be added at night -->
-
-<div class="product">
-
-<div class="pic">🥛</div>
 
 <h3>Olpers Milk</h3>
+<div class="size">1 Liter</div>
+<div class="price">Rs. 395</div>
 
-<div class="size">
-1 Liter
-</div>
-
-<div class="price">
-Rs. 395
-</div>
-
-<button class="add"
-onclick="add('Olpers Milk 1L',395)">
+<button class="add" onclick="add('Olpers Milk 1L',395)">
 Add to Cart
 </button>
 
@@ -566,20 +453,32 @@ Add to Cart
 
 <div class="product">
 
-<div class="pic">🍞</div>
+<div class="pic">
+<img src="Image%2014%20bake%20parlor.jpg">
+</div>
 
 <h3>Bake Parlor Bread</h3>
+<div class="size">1 Pack</div>
+<div class="price">Rs. 150</div>
 
-<div class="size">
-1 Pack
+<button class="add" onclick="add('Bake Parlor Bread',150)">
+Add to Cart
+</button>
+
 </div>
 
-<div class="price">
-Rs. 150
+
+<div class="product">
+
+<div class="pic">
+<img src="Image%2015%20eggs.webp">
 </div>
 
-<button class="add"
-onclick="add('Bake Parlor Bread',150)">
+<h3>Fresh Eggs</h3>
+<div class="size">6 Eggs</div>
+<div class="price">Rs. 177</div>
+
+<button class="add" onclick="add('Fresh Eggs 6',177)">
 Add to Cart
 </button>
 
@@ -589,7 +488,177 @@ Add to Cart
 </section>
 
 
-<!-- FRUITS -->
+<section id="vegetables">
+
+<h2 class="title">🥬 Fresh Vegetables</h2>
+
+<div class="products">
+
+
+<div class="product">
+<div class="pic"><img src="Images%204%20pyas.jpg"></div>
+<h3>Fresh Onion</h3>
+<div class="size">Pyaaz • Half KG</div>
+<div class="price">Rs. 80</div>
+<button class="add" onclick="add('Pyaaz Half KG',80)">Add to Cart</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Images%205%20aalu.jpg"></div>
+<h3>Fresh Potato</h3>
+<div class="size">Aloo • Half KG</div>
+<div class="price">Rs. 68</div>
+<button class="add" onclick="add('Aloo Half KG',68)">Add to Cart</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Images%2013%20tamato.jpg"></div>
+<h3>Fresh Tomato</h3>
+<div class="size">Tamatar • Half KG</div>
+<div class="price">Rs. 130</div>
+<button class="add" onclick="add('Tamatar Half KG',130)">Add to Cart</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Image%208%20hari%20mirch.jpeg"></div>
+<h3>Fresh Green Chilli</h3>
+<div class="size">Hari Mirch • 100 Gram</div>
+<div class="price">Rs. 50</div>
+<button class="add" onclick="add('Hari Mirch 100 Gram',50)">Add to Cart</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Images%202%20podina.jpg"></div>
+<h3>Fresh Mint</h3>
+<div class="size">Podina • 1 Gaddi</div>
+
+<div class="price">
+<span class="old-price">Rs. 50</span>
+Rs. 40
+</div>
+
+<div class="discount">20% OFF</div>
+
+<button class="add" onclick="add('Podina 1 Gaddi',40)">
+Add to Cart
+</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Images%207%20kheera%20.jpg"></div>
+<h3>Fresh Cucumber</h3>
+<div class="size">Kheera • Half KG</div>
+<div class="price">Rs. 95</div>
+<button class="add" onclick="add('Kheera Half KG',95)">Add to Cart</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Image%203%20lemon.jpg"></div>
+<h3>Fresh Lemon</h3>
+<div class="size">Lemon • Half KG</div>
+
+<div class="price">
+<span class="old-price">Rs. 170</span>
+Rs. 155
+</div>
+
+<div class="discount">8.8% OFF</div>
+
+<button class="add" onclick="add('Lemon Half KG',155)">
+Add to Cart
+</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Images%209%20lehsan.jpg"></div>
+<h3>Fresh Garlic</h3>
+<div class="size">Lehsan • 250 Gram</div>
+<div class="price">Rs. 140</div>
+<button class="add" onclick="add('Lehsan 250 Gram',140)">Add to Cart</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Image%2012%20adrak.avif"></div>
+<h3>Fresh Ginger</h3>
+<div class="size">Adrak • 250 Gram</div>
+<div class="price">Rs. 157</div>
+<button class="add" onclick="add('Adrak 250 Gram',157)">Add to Cart</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Images%20(1)%20dhania.jpg"></div>
+<h3>Fresh Coriander</h3>
+<div class="size">Dhania • 1 Gaddi</div>
+<div class="price">Rs. 46</div>
+<button class="add" onclick="add('Dhania 1 Gaddi',46)">Add to Cart</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Images%206%20kari%20pata%20.jpg"></div>
+<h3>Fresh Curry Leaves</h3>
+<div class="size">Karhi Patta • 100 Gram</div>
+
+<div class="price">
+<span class="old-price">Rs. 120</span>
+Rs. 105
+</div>
+
+<div class="discount">12.5% OFF</div>
+
+<button class="add" onclick="add('Karhi Patta 100 Gram',105)">
+Add to Cart
+</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Images%2011%20baigan.jpg"></div>
+<h3>Fresh Eggplant</h3>
+<div class="size">Baingan • 500 Gram</div>
+
+<div class="price">
+<span class="old-price">Rs. 100</span>
+Rs. 77
+</div>
+
+<div class="discount">23% OFF</div>
+
+<button class="add" onclick="add('Baingan 500 Gram',77)">
+Add to Cart
+</button>
+</div>
+
+
+<div class="product">
+<div class="pic"><img src="Images%2010%20bhindi.jpg"></div>
+<h3>Fresh Okra</h3>
+<div class="size">Bhindi • Half KG</div>
+
+<div class="price">
+<span class="old-price">Rs. 100</span>
+Rs. 85
+</div>
+
+<div class="discount">15% OFF</div>
+
+<button class="add" onclick="add('Bhindi Half KG',85)">
+Add to Cart
+</button>
+</div>
+
+</div>
+</section>
+
 
 <section id="fruits">
 
@@ -600,19 +669,11 @@ Add to Cart
 <div class="product">
 
 <div class="pic">🍌</div>
-
 <h3>Bananas</h3>
+<div class="size">1 Dozen</div>
+<div class="price">Rs. 160</div>
 
-<div class="size">
-1 Dozen
-</div>
-
-<div class="price">
-Rs. 160
-</div>
-
-<button class="add"
-onclick="add('Bananas 1 Dozen',160)">
+<button class="add" onclick="add('Bananas 1 Dozen',160)">
 Add to Cart
 </button>
 
@@ -621,8 +682,6 @@ Add to Cart
 </div>
 </section>
 
-
-<!-- MEAT -->
 
 <section id="meat">
 
@@ -633,19 +692,11 @@ Add to Cart
 <div class="product">
 
 <div class="pic">🍗</div>
-
 <h3>Chicken</h3>
+<div class="size">1 Kg</div>
+<div class="price">Rs. 540</div>
 
-<div class="size">
-1 Kg
-</div>
-
-<div class="price">
-Rs. 540
-</div>
-
-<button class="add"
-onclick="add('Chicken 1 Kg',540)">
+<button class="add" onclick="add('Chicken 1 Kg',540)">
 Add to Cart
 </button>
 
@@ -655,34 +706,17 @@ Add to Cart
 </section>
 
 
-<!-- DELIVERY -->
-
 <section class="delivery">
 
 <h2>🚚 Fast Local Delivery</h2>
 
-<p>
-Orders are delivered in approximately
-<strong>15–30 minutes</strong>.
-</p>
-
-<p>
-Standard delivery: <strong>Rs. 50</strong>
-</p>
-
-<p>
-Shop for <strong>Rs. 500 or more</strong> and get
-<strong>FREE delivery!</strong>
-</p>
-
-<p>
-🕐 <strong>Open 24 Hours</strong>
-</p>
+<p>Orders are delivered in approximately <strong>15–30 minutes</strong>.</p>
+<p>Standard delivery: <strong>Rs. 50</strong></p>
+<p>Shop for <strong>Rs. 500 or more</strong> and get <strong>FREE delivery!</strong></p>
+<p>🕐 <strong>Open 24 Hours</strong></p>
 
 </section>
 
-
-<!-- CONTACT -->
 
 <section class="contact" id="contact">
 
@@ -700,21 +734,13 @@ Burj-ul-Harmain, Scheme 33
 DHA Phase 8 and surrounding areas
 </p>
 
-<p>
-🕐 <strong>Open 24 Hours</strong>
-</p>
+<p>🕐 <strong>Open 24 Hours</strong></p>
 
-<p>
-⚡ <strong>Delivery Time:</strong> 15–30 Minutes
-</p>
+<p>⚡ <strong>Delivery Time:</strong> 15–30 Minutes</p>
 
-<p>
-📦 <strong>Delivery:</strong> Rs. 50
-</p>
+<p>📦 <strong>Delivery:</strong> Rs. 50</p>
 
-<p>
-🎉 <strong>Rs. 500+ Shopping:</strong> FREE Delivery
-</p>
+<p>🎉 <strong>Rs. 500+ Shopping:</strong> FREE Delivery</p>
 
 <br>
 
@@ -738,18 +764,12 @@ AI Automation & Web Development
 </div>
 
 </div>
-
 </section>
 
 
-<!-- CART -->
-
 <div class="cart" id="cart">
 
-<button class="close"
-onclick="closeCart()">
-✕
-</button>
+<button class="close" onclick="closeCart()">✕</button>
 
 <h2>🛒 Your Cart</h2>
 
@@ -804,7 +824,6 @@ Digital Solutions by Trevix Style — AI Automation & Web Development
 
 let cart=[];
 
-
 function add(name,price){
 
 let x=cart.find(i=>i.name===name);
@@ -823,7 +842,6 @@ update();
 openCart();
 
 }
-
 
 function update(){
 
@@ -850,15 +868,11 @@ Rs. ${x.price} × ${x.qty}
 
 <div class="qty">
 
-<button onclick="change(${i},-1)">
-−
-</button>
+<button onclick="change(${i},-1)">−</button>
 
 ${x.qty}
 
-<button onclick="change(${i},1)">
-+
-</button>
+<button onclick="change(${i},1)">+</button>
 
 </div>
 
@@ -868,14 +882,12 @@ ${x.qty}
 
 });
 
-
 document.getElementById("items").innerHTML=
 html || "Your cart is empty.";
 
 document.getElementById("subtotal").innerText=subtotal;
 
 document.getElementById("count").innerText=count;
-
 
 let delivery=0;
 
@@ -885,43 +897,24 @@ delivery=50;
 
 document.getElementById("delivery").innerText=delivery;
 
-
 let total=subtotal+delivery;
 
 document.getElementById("total").innerText=total;
 
-
-let msg=
-"Al Turab Mart Order:%0A%0A";
+let msg="Al Turab Mart Order:%0A%0A";
 
 cart.forEach(x=>{
-
-msg+=
-x.name+
-" x "+
-x.qty+
-"%0A";
-
+msg+=x.name+" x "+x.qty+"%0A";
 });
 
-msg+=
-"%0ASubtotal: Rs. "+
-subtotal;
-
-msg+=
-"%0ADelivery: Rs. "+
-delivery;
-
-msg+=
-"%0ATotal: Rs. "+
-total;
-
+msg+="%0ASubtotal: Rs. "+subtotal;
+msg+="%0ADelivery: Rs. "+delivery;
+msg+="%0ATotal: Rs. "+total;
 
 document.getElementById("order").href=
 "https://wa.me/923272199679?text="+msg;
 
 }
-
 
 function change(i,n){
 
@@ -935,7 +928,6 @@ update();
 
 }
 
-
 function openCart(){
 
 document
@@ -944,7 +936,6 @@ document
 .add("open");
 
 }
-
 
 function closeCart(){
 
