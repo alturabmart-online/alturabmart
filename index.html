@@ -857,67 +857,213 @@ Place Order
 </div>
 `;
 
-});
+let cart = [];
 
-document.getElementById("items").innerHTML=
-html || "Your cart is empty.";
+function add(name, price) {
 
-document.getElementById("subtotal").innerText=subtotal;
+    let found = cart.find(x => x.name === name);
 
-document.getElementById("count").innerText=count;
+    if (found) {
+        found.qty++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            qty: 1
+        });
+    }
 
-let delivery=0;
-
-if(subtotal>0 && subtotal<500){
-delivery=50;
+    update();
 }
 
-document.getElementById("delivery").innerText=delivery;
+function update() {
 
-let total=subtotal+delivery;
+    let html = "";
+    let subtotal = 0;
+    let count = 0;
 
-document.getElementById("total").innerText=total;
+    cart.forEach((x, i) => {
 
-let msg="Al Turab Mart Order:%0A%0A";
+        let sub = x.price * x.qty;
 
-cart.forEach(x=>{
-msg+=x.name+" x "+x.qty+"%0A";
-});
+        subtotal += sub;
+        count += x.qty;
 
-msg+="%0ASubtotal: Rs. "+subtotal;
-msg+="%0ADelivery: Rs. "+delivery;
-msg+="%0ATotal: Rs. "+total;
+        html += `
+        <div class="item">
 
-document.getElementById("order").href=
-"https://wa.me/923272199679?text="+msg;
+            <strong>${x.name}</strong>
 
+            <br>
+
+            Rs. ${x.price} × ${x.qty}
+
+            <div class="qty">
+
+                <button onclick="change(${i},-1)">−</button>
+
+                ${x.qty}
+
+                <button onclick="change(${i},1)">+</button>
+
+            </div>
+
+        </div>
+        `;
+    });
+
+    document.getElementById("items").innerHTML =
+        html || "Your cart is empty.";
+
+    document.getElementById("subtotal").innerText = subtotal;
+
+    document.getElementById("count").innerText = count;
+
+    let delivery = 0;
+
+    if (subtotal > 0 && subtotal < 500) {
+        delivery = 50;
+    }
+
+    document.getElementById("delivery").innerText = delivery;
+
+    let total = subtotal + delivery;
+
+    document.getElementById("total").innerText = total;
+
+    let msg = "Al Turab Mart Order:%0A%0A";
+
+    cart.forEach(x => {
+        msg += encodeURIComponent(x.name) +
+        " x " + x.qty + "%0A";
+    });
+
+    msg += "%0ASubtotal: Rs. " + subtotal;
+    msg += "%0ADelivery: Rs. " + delivery;
+    msg += "%0ATotal: Rs. " + total;
+
+    document.getElementById("order").href =
+        "https://wa.me/923272199679?text=" + msg;
 }
 
-function change(i,n){
+function change(i, n) {
 
-cart[i].qty+=n;
+    cart[i].qty += n;
 
-if(cart[i].qty<=0){
-cart.splice(i,1);
+    if (cart[i].qty <= 0) {
+        cart.splice(i, 1);
+    }
+
+    update();
 }
 
-update();
+function openCart() {
 
+    document.getElementById("cart")
+        .classList.add("open");
 }
 
-function openCart(){
+function closeCart() {
 
-document.getElementById("cart").classList.add("open");
-
+    document.getElementById("cart")
+        .classList.remove("open");
 }
 
-function closeCart(){
+function openCheckout() {
 
-document.getElementById("cart").classList.remove("open");
-
+    document.getElementById("checkout")
+        .style.display = "block";
 }
 
-function openCheckout(){
+function placeOrder() {
+
+    let name =
+        document.getElementById("customerName")
+        .value.trim();
+
+    let phone =
+        document.getElementById("customerPhone")
+        .value.trim();
+
+    let address =
+        document.getElementById("customerAddress")
+        .value.trim();
+
+    let payment =
+        document.querySelector(
+            'input[name="payment"]:checked'
+        ).value;
+
+    if (!name || !phone || !address) {
+
+        alert(
+            "Please enter your name, phone number and delivery address."
+        );
+
+        return;
+    }
+
+    let subtotal = 0;
+
+    let msg =
+        "Al Turab Mart Order:%0A%0A";
+
+    cart.forEach(x => {
+
+        let sub = x.price * x.qty;
+
+        subtotal += sub;
+
+        msg +=
+            encodeURIComponent(x.name) +
+            " x " +
+            x.qty +
+            " = Rs. " +
+            sub +
+            "%0A";
+    });
+
+    let delivery = 0;
+
+    if (subtotal > 0 && subtotal < 500) {
+        delivery = 50;
+    }
+
+    let total = subtotal + delivery;
+
+    msg +=
+        "%0AName: " +
+        encodeURIComponent(name);
+
+    msg +=
+        "%0APhone: " +
+        encodeURIComponent(phone);
+
+    msg +=
+        "%0AAddress: " +
+        encodeURIComponent(address);
+
+    msg +=
+        "%0APayment: " +
+        encodeURIComponent(payment);
+
+    msg +=
+        "%0A%0ASubtotal: Rs. " +
+        subtotal;
+
+    msg +=
+        "%0ADelivery: Rs. " +
+        delivery;
+
+    msg +=
+        "%0ATotal: Rs. " +
+        total;
+
+    window.open(
+        "https://wa.me/923272199679?text=" + msg,
+        "_blank"
+    );
+}
 
 document.getElementById("checkout").style.display="block";
 
