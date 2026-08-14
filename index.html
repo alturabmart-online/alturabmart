@@ -807,45 +807,10 @@ target="_blank">
 Send Order on WhatsApp
 </a>
 
-</div> 
-<br><br>
-
-<button class="add" onclick="openCheckout()">
-Proceed to Checkout
-</button>
-
-<div id="checkout" style="display:none;margin-top:20px;">
-
-<h2>Checkout</h2>
-
-<br>
-
-<input id="customerName" type="text" placeholder="Your Name"
-style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px;">
-
-<input id="customerPhone" type="tel" placeholder="Phone Number"
-style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px;">
-
-<textarea id="customerAddress" placeholder="Delivery Address"
-style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px;min-height:90px;"></textarea>
-
-<h3>Payment Method</h3>
-
-<br>
-
-<label>
-<input type="radio" name="payment" value="COD" checked>
-💵 Cash on Delivery
-</label>
-
-<br><br>
-
-<label>
-<input type="radio" name="payment" value="JazzCash">
-💳 JazzCash
-</label>
-
 </div>
+<br><br>
+
+
 <br><br>
 
 <button class="add" onclick="openCheckout()">
@@ -942,10 +907,13 @@ update();
 
 function openCart(){
 
-document
-.getElementById("cart")
-.classList
-.add("open");
+document.getElementById("cart").classList.add("open");
+
+}
+
+function closeCart(){
+
+document.getElementById("cart").classList.remove("open");
 
 }
 
@@ -954,15 +922,14 @@ function openCheckout(){
 document.getElementById("checkout").style.display="block";
 
 }
+
 function placeOrder(){
 
 let name=document.getElementById("customerName").value.trim();
 let phone=document.getElementById("customerPhone").value.trim();
 let address=document.getElementById("customerAddress").value.trim();
 
-let payment=document.querySelector(
-'input[name="payment"]:checked'
-).value;
+let payment=document.querySelector('input[name="payment"]:checked').value;
 
 if(!name || !phone || !address){
 
@@ -973,6 +940,7 @@ return;
 }
 
 let subtotal=0;
+
 let msg="Al Turab Mart Order:%0A%0A";
 
 cart.forEach(x=>{
@@ -981,15 +949,16 @@ let sub=x.price*x.qty;
 
 subtotal+=sub;
 
-msg+=encodeURIComponent(x.name)+" x "+x.qty+
-" = Rs. "+sub+"%0A";
+msg+=encodeURIComponent(x.name)+" x "+x.qty+" = Rs. "+sub+"%0A";
 
 });
 
 let delivery=0;
 
 if(subtotal>0 && subtotal<500){
+
 delivery=50;
+
 }
 
 let total=subtotal+delivery;
