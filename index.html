@@ -909,16 +909,15 @@ function update() {
             </div>
 
         </div>
-        `;
-   
+    <script>
 
 let cart = [];
 
 function add(name, price) {
-    let existing = cart.find(x => x.name === name);
+    let found = cart.find(x => x.name === name);
 
-    if (existing) {
-        existing.qty++;
+    if (found) {
+        found.qty++;
     } else {
         cart.push({
             name: name,
@@ -928,6 +927,7 @@ function add(name, price) {
     }
 
     update();
+    openCart();
 }
 
 function update() {
@@ -945,8 +945,7 @@ function update() {
 
         html += `
         <div class="item">
-            <strong>${x.name}</strong>
-            <br>
+            <strong>${x.name}</strong><br>
             Rs. ${x.price} × ${x.qty} = Rs. ${sub}
 
             <div class="qty">
@@ -957,7 +956,7 @@ function update() {
         </div>
         `;
     });
-<script>
+
     document.getElementById("items").innerHTML =
         html || "Your cart is empty.";
 
@@ -979,8 +978,11 @@ function update() {
     let msg = "Al Turab Mart Order:%0A%0A";
 
     cart.forEach(x => {
+        let sub = x.price * x.qty;
+
         msg += encodeURIComponent(x.name)
             + " x " + x.qty
+            + " = Rs. " + sub
             + "%0A";
     });
 
@@ -1026,24 +1028,24 @@ function placeOrder() {
     let address =
         document.getElementById("customerAddress").value.trim();
 
-    let payment =
-        document.querySelector(
-            'input[name="payment"]:checked'
-        ).value;
+    let paymentElement =
+        document.querySelector('input[name="payment"]:checked');
+
+    let payment = paymentElement ? paymentElement.value : "COD";
 
     if (!name || !phone || !address) {
+        alert("Please enter your name, phone number and delivery address.");
+        return;
+    }
 
-        alert(
-            "Please enter your name, phone number and delivery address."
-        );
-
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
         return;
     }
 
     let subtotal = 0;
 
-    let msg =
-        "Al Turab Mart Order:%0A%0A";
+    let msg = "Al Turab Mart Order:%0A%0A";
 
     cart.forEach(x => {
 
@@ -1066,26 +1068,13 @@ function placeOrder() {
 
     let total = subtotal + delivery;
 
-    msg +=
-        "%0AName: " + encodeURIComponent(name);
-
-    msg +=
-        "%0APhone: " + encodeURIComponent(phone);
-
-    msg +=
-        "%0AAddress: " + encodeURIComponent(address);
-
-    msg +=
-        "%0APayment: " + encodeURIComponent(payment);
-
-    msg +=
-        "%0A%0ASubtotal: Rs. " + subtotal;
-
-    msg +=
-        "%0ADelivery: Rs. " + delivery;
-
-    msg +=
-        "%0ATotal: Rs. " + total;
+    msg += "%0AName: " + encodeURIComponent(name);
+    msg += "%0APhone: " + encodeURIComponent(phone);
+    msg += "%0AAddress: " + encodeURIComponent(address);
+    msg += "%0APayment: " + encodeURIComponent(payment);
+    msg += "%0A%0ASubtotal: Rs. " + subtotal;
+    msg += "%0ADelivery: Rs. " + delivery;
+    msg += "%0ATotal: Rs. " + total;
 
     window.open(
         "https://wa.me/923272199679?text=" + msg,
@@ -1093,7 +1082,8 @@ function placeOrder() {
     );
 }
 
-</script>
+update();
 
+</script>
 </body>
 </html>
