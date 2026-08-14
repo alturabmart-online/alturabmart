@@ -912,11 +912,58 @@ function update() {
         `;
     });
 
+    <script>
+
+let cart = [];
+
+function add(name, price) {
+    let existing = cart.find(x => x.name === name);
+
+    if (existing) {
+        existing.qty++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            qty: 1
+        });
+    }
+
+    update();
+}
+
+function update() {
+
+    let html = "";
+    let subtotal = 0;
+    let count = 0;
+
+    cart.forEach((x, i) => {
+
+        let sub = x.price * x.qty;
+
+        subtotal += sub;
+        count += x.qty;
+
+        html += `
+        <div class="item">
+            <strong>${x.name}</strong>
+            <br>
+            Rs. ${x.price} × ${x.qty} = Rs. ${sub}
+
+            <div class="qty">
+                <button onclick="change(${i},-1)">−</button>
+                ${x.qty}
+                <button onclick="change(${i},1)">+</button>
+            </div>
+        </div>
+        `;
+    });
+
     document.getElementById("items").innerHTML =
         html || "Your cart is empty.";
 
     document.getElementById("subtotal").innerText = subtotal;
-
     document.getElementById("count").innerText = count;
 
     let delivery = 0;
@@ -934,8 +981,9 @@ function update() {
     let msg = "Al Turab Mart Order:%0A%0A";
 
     cart.forEach(x => {
-        msg += encodeURIComponent(x.name) +
-        " x " + x.qty + "%0A";
+        msg += encodeURIComponent(x.name)
+            + " x " + x.qty
+            + "%0A";
     });
 
     msg += "%0ASubtotal: Rs. " + subtotal;
@@ -958,36 +1006,27 @@ function change(i, n) {
 }
 
 function openCart() {
-
-    document.getElementById("cart")
-        .classList.add("open");
+    document.getElementById("cart").classList.add("open");
 }
 
 function closeCart() {
-
-    document.getElementById("cart")
-        .classList.remove("open");
+    document.getElementById("cart").classList.remove("open");
 }
 
 function openCheckout() {
-
-    document.getElementById("checkout")
-        .style.display = "block";
+    document.getElementById("checkout").style.display = "block";
 }
 
 function placeOrder() {
 
     let name =
-        document.getElementById("customerName")
-        .value.trim();
+        document.getElementById("customerName").value.trim();
 
     let phone =
-        document.getElementById("customerPhone")
-        .value.trim();
+        document.getElementById("customerPhone").value.trim();
 
     let address =
-        document.getElementById("customerAddress")
-        .value.trim();
+        document.getElementById("customerAddress").value.trim();
 
     let payment =
         document.querySelector(
@@ -1015,12 +1054,10 @@ function placeOrder() {
         subtotal += sub;
 
         msg +=
-            encodeURIComponent(x.name) +
-            " x " +
-            x.qty +
-            " = Rs. " +
-            sub +
-            "%0A";
+            encodeURIComponent(x.name)
+            + " x " + x.qty
+            + " = Rs. " + sub
+            + "%0A";
     });
 
     let delivery = 0;
@@ -1032,32 +1069,25 @@ function placeOrder() {
     let total = subtotal + delivery;
 
     msg +=
-        "%0AName: " +
-        encodeURIComponent(name);
+        "%0AName: " + encodeURIComponent(name);
 
     msg +=
-        "%0APhone: " +
-        encodeURIComponent(phone);
+        "%0APhone: " + encodeURIComponent(phone);
 
     msg +=
-        "%0AAddress: " +
-        encodeURIComponent(address);
+        "%0AAddress: " + encodeURIComponent(address);
 
     msg +=
-        "%0APayment: " +
-        encodeURIComponent(payment);
+        "%0APayment: " + encodeURIComponent(payment);
 
     msg +=
-        "%0A%0ASubtotal: Rs. " +
-        subtotal;
+        "%0A%0ASubtotal: Rs. " + subtotal;
 
     msg +=
-        "%0ADelivery: Rs. " +
-        delivery;
+        "%0ADelivery: Rs. " + delivery;
 
     msg +=
-        "%0ATotal: Rs. " +
-        total;
+        "%0ATotal: Rs. " + total;
 
     window.open(
         "https://wa.me/923272199679?text=" + msg,
@@ -1065,64 +1095,6 @@ function placeOrder() {
     );
 }
 
-document.getElementById("checkout").style.display="block";
-
-}
-
-function placeOrder(){
-
-let name=document.getElementById("customerName").value.trim();
-let phone=document.getElementById("customerPhone").value.trim();
-let address=document.getElementById("customerAddress").value.trim();
-
-let payment=document.querySelector('input[name="payment"]:checked').value;
-
-if(!name || !phone || !address){
-
-alert("Please enter your name, phone number and delivery address.");
-
-return;
-
-}
-
-let subtotal=0;
-
-let msg="Al Turab Mart Order:%0A%0A";
-
-cart.forEach(x=>{
-
-let sub=x.price*x.qty;
-
-subtotal+=sub;
-
-msg+=encodeURIComponent(x.name)+" x "+x.qty+" = Rs. "+sub+"%0A";
-
-});
-
-let delivery=0;
-
-if(subtotal>0 && subtotal<500){
-
-delivery=50;
-
-}
-
-let total=subtotal+delivery;
-
-msg+="%0AName: "+encodeURIComponent(name);
-msg+="%0APhone: "+encodeURIComponent(phone);
-msg+="%0AAddress: "+encodeURIComponent(address);
-msg+="%0APayment: "+encodeURIComponent(payment);
-msg+="%0A%0ASubtotal: Rs. "+subtotal;
-msg+="%0ADelivery: Rs. "+delivery;
-msg+="%0ATotal: Rs. "+total;
-
-window.open(
-"https://wa.me/923272199679?text="+msg,
-"_blank"
-);
-
-}
 </script>
 
 </body>
