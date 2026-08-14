@@ -807,82 +807,89 @@ target="_blank">
 Send Order on WhatsApp
 </a>
 
-</div>
+</div> 
+<br><br>
 
+<button class="add" onclick="openCheckout()">
+Proceed to Checkout
+</button>
 
-<footer>
+<div id="checkout" style="display:none;margin-top:20px;">
 
-© 2026 Al Turab Mart — Online Grocery
+<h2>Checkout</h2>
 
-<div class="footer-small">
-Founded & Managed by Mirhadi
-</div>
-
-<div class="footer-small">
-Digital Solutions by Trevix Style — AI Automation & Web Development
-</div>
-
-</footer>
-
-
-<script>
-
-let cart=[];
-
-function add(name,price){
-
-let x=cart.find(i=>i.name===name);
-
-if(x){
-x.qty++;
-}else{
-cart.push({
-name:name,
-price:price,
-qty:1
-});
-}
-
-update();
-openCart();
-
-}
-
-function update(){
-
-let html="";
-let subtotal=0;
-let count=0;
-
-cart.forEach((x,i)=>{
-
-let sub=x.price*x.qty;
-
-subtotal+=sub;
-count+=x.qty;
-
-html+=`
-
-<div class="item">
-
-<b>${x.name}</b>
 <br>
 
-Rs. ${x.price} × ${x.qty}
-= Rs. ${sub}
+<input id="customerName" type="text" placeholder="Your Name"
+style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px;">
 
-<div class="qty">
+<input id="customerPhone" type="tel" placeholder="Phone Number"
+style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px;">
 
-<button onclick="change(${i},-1)">−</button>
+<textarea id="customerAddress" placeholder="Delivery Address"
+style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px;min-height:90px;"></textarea>
 
-${x.qty}
+<h3>Payment Method</h3>
 
-<button onclick="change(${i},1)">+</button>
+<br>
+
+<label>
+<input type="radio" name="payment" value="COD" checked>
+💵 Cash on Delivery
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="payment" value="JazzCash">
+💳 JazzCash
+</label>
 
 </div>
+<br><br>
+
+<button class="add" onclick="openCheckout()">
+Proceed to Checkout
+</button>
+
+<div id="checkout" style="display:none;margin-top:20px;">
+
+<h2>Checkout</h2>
+
+<br>
+
+<input id="customerName" type="text" placeholder="Your Name"
+style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px;">
+
+<input id="customerPhone" type="tel" placeholder="Phone Number"
+style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px;">
+
+<textarea id="customerAddress" placeholder="Delivery Address"
+style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-radius:8px;min-height:90px;"></textarea>
+
+<h3>Payment Method</h3>
+
+<br>
+
+<label>
+<input type="radio" name="payment" value="COD" checked>
+💵 Cash on Delivery
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="payment" value="OPay">
+🟣 OPay
+</label>
+
+<br><br>
+
+<button class="add" onclick="placeOrder()">
+Place Order
+</button>
 
 </div>
-
 `;
 
 });
@@ -942,15 +949,65 @@ document
 
 }
 
-function closeCart(){
+function openCheckout(){
 
-document
-.getElementById("cart")
-.classList
-.remove("open");
+document.getElementById("checkout").style.display="block";
+
+}
+function placeOrder(){
+
+let name=document.getElementById("customerName").value.trim();
+let phone=document.getElementById("customerPhone").value.trim();
+let address=document.getElementById("customerAddress").value.trim();
+
+let payment=document.querySelector(
+'input[name="payment"]:checked'
+).value;
+
+if(!name || !phone || !address){
+
+alert("Please enter your name, phone number and delivery address.");
+
+return;
 
 }
 
+let subtotal=0;
+let msg="Al Turab Mart Order:%0A%0A";
+
+cart.forEach(x=>{
+
+let sub=x.price*x.qty;
+
+subtotal+=sub;
+
+msg+=encodeURIComponent(x.name)+" x "+x.qty+
+" = Rs. "+sub+"%0A";
+
+});
+
+let delivery=0;
+
+if(subtotal>0 && subtotal<500){
+delivery=50;
+}
+
+let total=subtotal+delivery;
+
+msg+="%0AName: "+encodeURIComponent(name);
+msg+="%0APhone: "+encodeURIComponent(phone);
+msg+="%0AAddress: "+encodeURIComponent(address);
+msg+="%0APayment: "+encodeURIComponent(payment);
+msg+="%0A%0ASubtotal: Rs. "+subtotal;
+msg+="%0ADelivery: Rs. "+delivery;
+msg+="%0ATotal: Rs. "+total;
+
+window.open(
+"https://wa.me/923272199679?text="+msg,
+"_blank"
+);
+
+}
 </script>
 
 </body>
