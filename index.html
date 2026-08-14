@@ -810,7 +810,7 @@ Send Order on WhatsApp
 
 <div id="checkout" style="display:none;margin-top:20px;">
 
-<h2>Checkout</h2>
+<h2>🛍️ Checkout Online</h2>
 
 <br>
 
@@ -828,20 +828,37 @@ style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-r
 <br>
 
 <label>
-<input type="radio" name="payment" value="COD" checked>
+<input type="radio" name="payment" value="COD" checked onclick="showOPay(false)">
 💵 Cash on Delivery
 </label>
 
 <br><br>
 
 <label>
-<input type="radio" name="payment" value="OPay">
+<input type="radio" name="payment" value="OPay" onclick="showOPay(true)">
 🟣 OPay
 </label>
 
+<div id="opayDetails" style="display:none;background:#f0f8ed;padding:15px;border-radius:10px;margin-top:15px;">
+
+<strong>🟣 OPay Payment Details</strong>
+
 <br><br>
 
+Account Name: <strong>Mirhadi</strong>
 
+<br>
+
+OPay Number: <strong>03272199679</strong>
+
+</div>
+
+<br>
+
+<button onclick="placeOrder()"
+style="width:100%;background:#111;color:white;border:0;padding:13px;border-radius:8px;font-weight:bold;cursor:pointer;">
+Place Order
+</button>
 
 </div>
 <script>
@@ -943,7 +960,62 @@ function openCart() {
 function closeCart() {
     document.getElementById("cart").classList.remove("open");
 }
+function showOPay(show) {
+    document.getElementById("opayDetails").style.display =
+        show ? "block" : "none";
+}
 
+function placeOrder() {
+
+    let name = document.getElementById("customerName").value.trim();
+    let phone = document.getElementById("customerPhone").value.trim();
+    let address = document.getElementById("customerAddress").value.trim();
+
+    let payment = document.querySelector(
+        'input[name="payment"]:checked'
+    ).value;
+
+    if (!name || !phone || !address) {
+        alert("Please enter your Name, Phone Number and Delivery Address.");
+        return;
+    }
+
+    let subtotal = cart.reduce(
+        (sum, item) => sum + (item.price * item.qty), 0
+    );
+
+    let delivery = subtotal >= 500 ? 0 : 50;
+    let total = subtotal + delivery;
+
+    let orderText =
+        "🛒 AL TURAB MART ORDER%0A%0A" +
+        "Name: " + encodeURIComponent(name) + "%0A" +
+        "Phone: " + encodeURIComponent(phone) + "%0A" +
+        "Address: " + encodeURIComponent(address) + "%0A%0A";
+
+    cart.forEach(item => {
+        orderText +=
+            encodeURIComponent(item.name) +
+            " × " + item.qty +
+            " = Rs. " + (item.price * item.qty) +
+            "%0A";
+    });
+
+    orderText +=
+        "%0ASubtotal: Rs. " + subtotal +
+        "%0ADelivery: Rs. " + delivery +
+        "%0ATotal: Rs. " + total +
+        "%0APayment: " + encodeURIComponent(payment);
+
+    if (payment === "OPay") {
+        orderText += "%0AOPay Number: 03272199679";
+    }
+
+    window.open(
+        "https://wa.me/923272199679?text=" + orderText,
+        "_blank"
+    );
+}
 update();
 </script>
 </body>
