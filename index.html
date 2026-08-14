@@ -844,8 +844,107 @@ style="width:100%;padding:12px;margin-bottom:10px;border:1px solid #ddd;border-r
 
 
 </div>
-`;
+<script>
+let cart = [];
 
+function add(name, price) {
+    let found = cart.find(x => x.name === name);
+
+    if (found) {
+        found.qty++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            qty: 1
+        });
+    }
+
+    update();
+    openCart();
+}
+
+function update() {
+    let html = "";
+    let subtotal = 0;
+    let count = 0;
+
+    if (cart.length === 0) {
+        document.getElementById("items").innerHTML = "Your cart is empty.";
+    } else {
+        cart.forEach((item, index) => {
+
+            let itemTotal = item.price * item.qty;
+
+            subtotal += itemTotal;
+            count += item.qty;
+
+            html += `
+            <div class="item">
+                <strong>${item.name}</strong>
+                <br>
+                Rs. ${item.price} × ${item.qty}
+                = Rs. ${itemTotal}
+
+                <div class="qty">
+                    <button onclick="changeQty(${index}, -1)">−</button>
+                    ${item.qty}
+                    <button onclick="changeQty(${index}, 1)">+</button>
+                    <button onclick="removeItem(${index})">Remove</button>
+                </div>
+            </div>
+            `;
+        });
+
+        document.getElementById("items").innerHTML = html;
+    }
+
+    let delivery = subtotal >= 500 || subtotal === 0 ? 0 : 50;
+
+    document.getElementById("count").innerText = count;
+    document.getElementById("subtotal").innerText = subtotal;
+    document.getElementById("delivery").innerText = delivery;
+    document.getElementById("total").innerText = subtotal + delivery;
+
+    let orderText = "Hello Al Turab Mart!%0A%0A";
+
+    cart.forEach(item => {
+        orderText += item.name + " × " + item.qty +
+        " = Rs. " + (item.price * item.qty) + "%0A";
+    });
+
+    orderText += "%0ASubtotal: Rs. " + subtotal;
+    orderText += "%0ADelivery: Rs. " + delivery;
+    orderText += "%0ATotal: Rs. " + (subtotal + delivery);
+
+    document.getElementById("order").href =
+        "https://wa.me/923272199679?text=" + orderText;
+}
+
+function changeQty(index, amount) {
+    cart[index].qty += amount;
+
+    if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+    }
+
+    update();
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    update();
+}
+
+function openCart() {
+    document.getElementById("cart").classList.add("open");
+}
+
+function closeCart() {
+    document.getElementById("cart").classList.remove("open");
+}
+
+update();
 </script>
 </body>
 </html>
