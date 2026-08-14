@@ -797,7 +797,7 @@ Total: Rs. <span id="total">0</span>
 <br><br>
 
 <button
-onclick="openCart(); document.getElementById('checkout').style.display='block';"
+onclick="openCheckout()"
 style="width:100%;background:#111;color:white;border:0;padding:13px;border-radius:8px;font-weight:bold;cursor:pointer;">
 🛍️ Checkout Online
 </button>
@@ -1021,6 +1021,11 @@ function placeOrder() {
         "https://wa.me/923272199679?text=" + orderText,
         "_blank"
     );
+}function openCheckout() {
+    document.getElementById("checkout").style.display = "block";
+    document.getElementById("checkout").scrollIntoView({
+        behavior: "smooth"
+    });
 }
 update();
 </script>
