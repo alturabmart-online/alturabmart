@@ -350,7 +350,7 @@ section{padding:40px 5%}
 <div class="info-badge">🕐 Open 24 Hours</div>
 <div class="info-badge">⚡ 15–30 Min Delivery</div>
 <div class="info-badge">🚚 Rs. 50 Delivery</div>
-<div class="info-badge">🎉 Rs. 500+ FREE Delivery</div>
+<div class="info-badge">🎉 Rs. 1000+ FREE Delivery</div>
 
 </div>
 
@@ -1054,7 +1054,7 @@ Add to Cart
 
 <p>Orders are delivered in approximately <strong>15–30 minutes</strong>.</p>
 <p>Standard delivery: <strong>Rs. 50</strong></p>
-<p>Shop for <strong>Rs. 500 or more</strong> and get <strong>FREE delivery!</strong></p>
+<p>Shop for <strong>Rs. 1000 or more</strong> and get <strong>FREE delivery!</strong></p>
 <p>🕐 <strong>Open 24 Hours</strong></p>
 
 </section>
@@ -1123,7 +1123,7 @@ Your cart is empty.
 
 <div class="delivery-note">
 🚚 Delivery: Rs. 50<br>
-🎉 Orders of Rs. 500+ get FREE delivery.
+🎉 Orders of Rs. 1000+ get FREE delivery.
 </div>
 
 <div class="total">
@@ -1265,7 +1265,7 @@ function update() {
         document.getElementById("items").innerHTML = html;
     }
 
-    let delivery = subtotal >= 500 || subtotal === 0 ? 0 : 50;
+    let delivery = subtotal >= 1000 || subtotal === 0 ? 0 : 50;
 
     document.getElementById("count").innerText = count;
     document.getElementById("subtotal").innerText = subtotal;
@@ -1333,7 +1333,7 @@ function placeOrder() {
         (sum, item) => sum + (item.price * item.qty), 0
     );
 
-    let delivery = subtotal >= 500 ? 0 : 50;
+    let delivery = subtotal >= 1000 ? 0 : 50;
     let total = subtotal + delivery;
 
     let orderText =
