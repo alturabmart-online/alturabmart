@@ -2409,7 +2409,19 @@ function update() {
         document.getElementById("items").innerHTML = html;
     }
 
-    let delivery = subtotal >= 1000 || subtotal === 0 ? 0 : 50;
+    let hasMidnightDeal = cart.some(item =>
+    item.name === "Midnight Deal - 2 Burgers + 2 Cold Drinks"
+);
+
+let delivery;
+
+if (hasMidnightDeal) {
+    delivery = 79;
+} else if (subtotal >= 1000 || subtotal === 0) {
+    delivery = 0;
+} else {
+    delivery = 50;
+}
 
     document.getElementById("count").innerText = count;
     document.getElementById("subtotal").innerText = subtotal;
@@ -2459,6 +2471,17 @@ function showOPay(show) {
 }
 
 function placeOrder() {
+  const now = new Date();
+const hour = now.getHours();
+
+const hasMidnightDeal = cart.some(item =>
+    item.name === "Midnight Deal - 2 Burgers + 2 Cold Drinks"
+);
+
+if (hasMidnightDeal && hour >= 4) {
+    alert("🌙 Midnight Deal is available only from 12 AM to 4 AM.");
+    return;
+}
 
     let name = document.getElementById("customerName").value.trim();
     let phone = document.getElementById("customerPhone").value.trim();
