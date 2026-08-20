@@ -26,7 +26,7 @@ position:sticky;
 top:0;
 z-index:10;
 }
-<section id="midnight-deals" class="midnight-section">
+<section id="midnight-deals" class="midnight-section" style="display:none;">
 
 <h2 class="title">🌙 Midnight Deal</h2>
 
@@ -2331,6 +2331,30 @@ Place Order
 
 </div>
 <script>
+  <script>
+
+// 🌙 Midnight Deal: 12 AM to 4 AM
+function checkMidnightDeal() {
+
+    const now = new Date();
+    const hour = now.getHours();
+
+    const deal = document.getElementById("midnight-deals");
+
+    if (hour >= 0 && hour < 4) {
+        deal.style.display = "block";
+    } else {
+        deal.style.display = "none";
+    }
+}
+
+checkMidnightDeal();
+
+setInterval(checkMidnightDeal, 60000);
+
+let cart = [];
+
+function add(name, price) {
 let cart = [];
 
 function add(name, price) {
