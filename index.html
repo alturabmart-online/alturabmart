@@ -2497,9 +2497,17 @@ if (hasMidnightDeal && hour >= 4) {
         (sum, item) => sum + (item.price * item.qty), 0
     );
 
-    let delivery = subtotal >= 1000 ? 0 : 50;
-    let total = subtotal + delivery;
+    let delivery;
 
+if (hasMidnightDeal) {
+    delivery = 79;
+} else if (subtotal >= 1000) {
+    delivery = 0;
+} else {
+    delivery = 50;
+}
+
+let total = subtotal + delivery;
     let orderText =
         "🛒 AL TURAB MART ORDER%0A%0A" +
         "Name: " + encodeURIComponent(name) + "%0A" +
