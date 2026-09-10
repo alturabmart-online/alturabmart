@@ -14,7 +14,18 @@ font-family:Arial,sans-serif;
 background:#f7f8f5;
 color:#222;
 }
+:root{
+--theme-main:#111;
+--theme-bg:#f7f8f5;
+--theme-text:#222;
+--theme-card:#fff;
+}
 
+body{
+background:var(--theme-bg);
+color:var(--theme-text);
+transition:background .5s ease,color .5s ease;
+}
 
 /* 🌙 Welcome Animation */
 
