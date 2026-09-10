@@ -4220,7 +4220,9 @@ const themeObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    threshold: 0.35
+    threshold: 0.1,
+    rootMargin: "-20% 0px -50% 0px"
+});
 });
 
 themeSections.forEach(item => {
