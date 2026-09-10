@@ -4192,6 +4192,44 @@ document.querySelectorAll('a[href="#vegetables"]').forEach(link => {
         setTheme("vegetables");
     });
 });
+  // 🔄 Automatic Theme on Scroll
+
+const themeSections = [
+    { id: "vegetables", theme: "vegetables" },
+    { id: "fruits", theme: "fruits" },
+    { id: "chocolates", theme: "chocolates" },
+    { id: "drinks", theme: "drinks" },
+    { id: "breakfast", theme: "breakfast" },
+    { id: "meat", theme: "meat" },
+    { id: "beauty-skincare", theme: "beauty" },
+    { id: "medicine", theme: "medicine" },
+    { id: "snacks", theme: "snacks" },
+    { id: "grocery", theme: "grocery" }
+];
+
+const themeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const section = themeSections.find(
+                item => item.id === entry.target.id
+            );
+
+            if (section) {
+                setTheme(section.theme);
+            }
+        }
+    });
+}, {
+    threshold: 0.35
+});
+
+themeSections.forEach(item => {
+    const section = document.getElementById(item.id);
+
+    if (section) {
+        themeObserver.observe(section);
+    }
+});
 </script>
 </body>
 </html>
