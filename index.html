@@ -20,7 +20,77 @@ color:#222;
 --theme-text:#222;
 --theme-card:#fff;
 }
+/* Category Themes */
 
+body.theme-vegetables{
+--theme-main:#2e7d32;
+--theme-bg:#f1f8f1;
+--theme-text:#1b3a1b;
+--theme-card:#ffffff;
+}
+
+body.theme-fruits{
+--theme-main:#f57c00;
+--theme-bg:#fff8ed;
+--theme-text:#3d2600;
+--theme-card:#ffffff;
+}
+
+body.theme-chocolates{
+--theme-main:#6d3b20;
+--theme-bg:#f8f1ed;
+--theme-text:#3b2115;
+--theme-card:#ffffff;
+}
+
+body.theme-drinks{
+--theme-main:#1976d2;
+--theme-bg:#eef7ff;
+--theme-text:#15324a;
+--theme-card:#ffffff;
+}
+
+body.theme-breakfast{
+--theme-main:#e6a700;
+--theme-bg:#fff9e6;
+--theme-text:#3d3000;
+--theme-card:#ffffff;
+}
+
+body.theme-meat{
+--theme-main:#b71c1c;
+--theme-bg:#fff1f1;
+--theme-text:#3d1111;
+--theme-card:#ffffff;
+}
+
+body.theme-beauty{
+--theme-main:#c2185b;
+--theme-bg:#fff2f7;
+--theme-text:#421526;
+--theme-card:#ffffff;
+}
+
+body.theme-medicine{
+--theme-main:#00838f;
+--theme-bg:#effbfc;
+--theme-text:#12383b;
+--theme-card:#ffffff;
+}
+
+body.theme-snacks{
+--theme-main:#ef6c00;
+--theme-bg:#fff5ed;
+--theme-text:#42200d;
+--theme-card:#ffffff;
+}
+
+body.theme-grocery{
+--theme-main:#8d6e63;
+--theme-bg:#faf7f2;
+--theme-text:#30251f;
+--theme-card:#ffffff;
+}
 body{
 background:var(--theme-bg);
 color:var(--theme-text);
@@ -4110,6 +4180,18 @@ let total = subtotal + delivery;
     });
 }
 update();
+  // 🎨 Category Theme Switcher
+
+function setTheme(theme) {
+    document.body.className = theme ? "theme-" + theme : "";
+}
+  // 🥬 Vegetables Theme
+
+document.querySelectorAll('a[href="#vegetables"]').forEach(link => {
+    link.addEventListener("click", function() {
+        setTheme("vegetables");
+    });
+});
 </script>
 </body>
 </html>
