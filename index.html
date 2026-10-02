@@ -580,6 +580,30 @@ section{padding:40px 5%}
     border-radius: 25px;
     font-weight: 600;
 }
+  /* 🎉 AL TURAB MART PARTY CONFETTI */
+
+.party-confetti{
+    position:fixed;
+    top:-25px;
+    width:8px;
+    height:14px;
+    z-index:100000;
+    pointer-events:none;
+    border-radius:2px;
+    animation:partyFall linear forwards;
+}
+
+@keyframes partyFall{
+    0%{
+        transform:translateY(-30px) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
 </style>
 </head>
 
