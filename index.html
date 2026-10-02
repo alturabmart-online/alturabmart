@@ -4262,6 +4262,59 @@ themeSections.forEach(item => {
         themeObserver.observe(section);
     }
 });
+  // 🎉 AL TURAB MART PARTY CONFETTI
+
+function startPartyConfetti(){
+
+    const pieces = 90;
+
+    const colors = [
+        "#ff1744",
+        "#ffd600",
+        "#00e676",
+        "#2979ff",
+        "#e040fb",
+        "#ff9100"
+    ];
+
+    for(let i = 0; i < pieces; i++){
+
+        const confetti = document.createElement("div");
+
+        confetti.className = "party-confetti";
+
+        confetti.style.left = Math.random() * 100 + "vw";
+
+        confetti.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        confetti.style.width =
+            (5 + Math.random() * 6) + "px";
+
+        confetti.style.height =
+            (8 + Math.random() * 10) + "px";
+
+        confetti.style.animationDuration =
+            (2.5 + Math.random() * 2) + "s";
+
+        confetti.style.animationDelay =
+            (Math.random() * 0.8) + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(function(){
+            confetti.remove();
+        }, 5500);
+    }
+}
+
+window.addEventListener("load", function(){
+
+    setTimeout(function(){
+        startPartyConfetti();
+    }, 1500);
+
+});
 </script>
 </body>
 </html>
